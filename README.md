@@ -98,15 +98,21 @@ O site usa Bootstrap 5.3.3 em modo escuro (`data-bs-theme="dark"`): grid e utili
 
 ## Formulário de contato
 
-Hoje o formulário **valida os campos, mas não envia e-mail**, porque não há backend. Ao enviar, ele avisa isso claramente e oferece mandar a mesma mensagem pelo WhatsApp, já preenchida.
-
-Para ativar o envio real, crie um endpoint (Formspree, Getform, Basin, ou um backend próprio) e cole a URL em `data.js`:
+O formulário **envia e-mail para aluiz.cez@gmail.com** pelo [FormSubmit](https://formsubmit.co), serviço gratuito que não exige backend nem cadastro. A configuração fica em `data.js`:
 
 ```js
-formulario: { endpoint: "https://formspree.io/f/SEU_ID", metodo: "POST" }
+formulario: { endpoint: "https://formsubmit.co/ajax/aluiz.cez@gmail.com", metodo: "POST" }
 ```
 
-O script envia os campos `nome`, `email`, `telefone`, `assunto`, `mensagem` e `aceite` em JSON e mostra sucesso ou erro conforme a resposta.
+**Ativação (uma vez só):** depois de publicar o site, envie uma mensagem de teste pelo formulário. O FormSubmit manda um e-mail de confirmação para aluiz.cez@gmail.com; clique em **Activate Form**. A partir daí, cada envio chega como e-mail com o assunto "Contato pelo site: …", e o botão "Responder" já vai para o e-mail do visitante. Se o e-mail de ativação não aparecer, procure no spam.
+
+Detalhes:
+
+- O envio só funciona com o site publicado (ou servido por `python3 -m http.server`), não abrindo o arquivo direto do computador.
+- Há um campo-armadilha invisível (`_honey`) contra robôs de spam.
+- Se o envio falhar, o visitante vê um aviso e um link para mandar a mesma mensagem, já preenchida, pelo WhatsApp.
+- Para esconder o endereço de e-mail do código, o FormSubmit oferece, após a ativação, um endereço aleatório (ex.: `https://formsubmit.co/ajax/abc123…`); basta trocar o `endpoint`.
+- Para usar outro serviço (Formspree, Getform, backend próprio), troque o `endpoint`. O script envia JSON com `nome`, `email`, `telefone`, `assunto`, `mensagem`, `aceite` e `pagina`.
 
 ## Antes de publicar
 
