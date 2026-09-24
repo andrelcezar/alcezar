@@ -28,17 +28,51 @@ window.SITE_DATA = {
     { nome: "WhatsApp", url: "https://wa.me/5511980469450", usuario: "+55 11 98046-9450", icone: "whatsapp" }
   ],
 
+  /* Lançamentos (discografia). tipo: Álbum | Single | EP | Demo.
+     link: onde ouvir/assistir (deixe "" se não houver). video: índice do vídeo em "videos" para abrir no modal (opcional). */
+  lancamentos: [
+    { titulo: "Lycans", artista: "High Moonlight", tipo: "Álbum", ano: "2025",
+      detalhe: "Álbum de estreia da banda, com 10 faixas. Produzido por Tiago de la Vega no Shokran Studios (Caxias do Sul/RS). Baixo: André Luiz.",
+      link: "https://onerpm.link/235132452580", acao: "Ouvir o álbum", icone: "vinyl-fill", cor: "#6b0d10" },
+    { titulo: "Heavy Play", artista: "High Moonlight", tipo: "Single e videoclipe", ano: "2025",
+      detalhe: "Primeiro single de “Lycans”, com clipe em 4K gravado no Cardeal Pub, em São Paulo.",
+      link: "https://youtu.be/09d6qC0DHO8", acao: "Assistir ao clipe", video: 0, icone: "camera-reels-fill", cor: "#0d4a44" },
+    { titulo: "The Lost Horizon", artista: "Opus Eclipse", tipo: "Demo", ano: "2009",
+      detalhe: "Primeira demo autoral da banda, depois do festival Pimp My Band, onde tocamos “Convict” e “The Lost Horizon”.",
+      link: "", acao: "", icone: "disc-fill", cor: "#2a2a2a" }
+  ],
+
+  /* Linha do tempo da carreira, em ordem. "quando" aceita ano ou texto curto. */
+  trajetoria: [
+    { quando: "2007", titulo: "Opus Eclipse — formação original",
+      texto: "Entro no baixo da banda, formada em fevereiro como cover de gothic metal e que logo passa a tocar só Therion." },
+    { quando: "27 set 2007", titulo: "Aval do Therion",
+      texto: "A Opus Eclipse é reconhecida e autorizada por Christofer Johnsson, fundador do Therion, como cover brasileiro da banda." },
+    { quando: "2008–2009", titulo: "Nova formação e músicas próprias",
+      texto: "Volto com a formação renovada. Tocamos “Convict” e “The Lost Horizon” no festival Pimp My Band e preparamos a demo “The Lost Horizon”." },
+    { quando: "2012", titulo: "Fim de um ciclo",
+      texto: "Deixo a banda depois de cinco anos, quando ela passa a se chamar Remagine." },
+    { quando: "3 anos", titulo: "Noctra",
+      texto: "Tributo a Epica e After Forever. Mais três anos no metal sinfônico, com vocal lírico." },
+    { quando: "Autoral", titulo: "Sophie's Threat",
+      texto: "Som autoral pesado, com forte influência do thrash metal." },
+    { quando: "2025", titulo: "High Moonlight — “Lycans”",
+      texto: "Gravo o baixo do álbum de estreia da veterana do heavy metal paulistano e o videoclipe de “Heavy Play”." },
+    { quando: "Hoje", titulo: "Freelancer e RootingDoom",
+      texto: "Shows, substituições, estúdio e clipes como freelancer, e o RootingDoom, meu projeto autoral." }
+  ],
+
   servicos: [
-    { icone: "palco", titulo: "Shows e substituições",
+    { icone: "speaker-fill", titulo: "Shows e substituições",
       texto: "Aprendo o repertório, chego ensaiado e seguro o grave no palco, seja num tributo ou numa banda autoral.",
       link: "#contato", acao: "Consultar data" },
-    { icone: "estudio", titulo: "Gravação de estúdio",
+    { icone: "mic-fill", titulo: "Gravação de estúdio",
       texto: "Linhas de baixo para single, EP ou álbum, criadas junto com a banda ou a partir da sua demo.",
       link: "#contato", acao: "Pedir orçamento" },
-    { icone: "camera", titulo: "Videoclipes",
+    { icone: "camera-reels-fill", titulo: "Videoclipes",
       texto: "Presença de palco em frente à câmera, com a experiência do clipe de “Heavy Play”, gravado com a High Moonlight.",
       link: "#videos", acao: "Ver o clipe" },
-    { icone: "arranjo", titulo: "Criação de linhas de baixo",
+    { icone: "music-note-beamed", titulo: "Criação de linhas de baixo",
       texto: "Do riff de thrash ao arranjo sinfônico: construo a linha que serve à música, não ao ego.",
       link: "#contato", acao: "Conversar" }
   ],

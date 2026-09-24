@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="pt-BR" class="no-js">
+<html lang="pt-BR" data-bs-theme="dark" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Termos de uso | André Luiz — Baixista</title>
 <meta name="description" content="Termos de uso do site de André Luiz, baixista.">
 <meta name="theme-color" content="#000000">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://www.seudominio.com.br/pages/termos.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -19,37 +20,53 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
 <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Big+Shoulders+Display:wght@700;800;900&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body data-pagina="" data-base="../">
-<a class="pular" href="#conteudo">Pular para o conteúdo</a>
-<header class="header">
-  <div class="container header__inner">
-    <a class="marca" href="../index.html" aria-label="André Luiz, baixista — página inicial">
-      <img src="../assets/images/logo-96.webp" alt="" width="44" height="44">
-      <span>André Luiz</span>
+<body data-pagina="termos" data-base="../">
+<a class="pular btn btn-primary" href="#conteudo">Pular para o conteúdo</a>
+<nav class="navbar navbar-expand-xl fixed-top navbar-al" aria-label="Principal">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html" aria-label="André Luiz, baixista — página inicial">
+      <img src="../assets/images/logo-al-120.webp" alt="" width="44" height="44">André Luiz
     </a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span></button>
-    <nav class="nav" id="menu" aria-label="Principal">
-      <ul class="nav__lista"><li><a class="nav__link" href="../index.html#inicio">Início</a></li><li><a class="nav__link" href="../index.html#sobre">Sobre</a></li><li><a class="nav__link" href="../index.html#servicos">Serviços</a></li><li><a class="nav__link" href="../pages/galeria.html">Galeria</a></li><li><a class="nav__link" href="../index.html#videos">Vídeos</a></li><li><a class="nav__link" href="../pages/blog.html">Blog</a></li><li><a class="nav__link" href="../pages/contato.html">Contato</a></li>
-        <li><a class="btn btn--primario nav__cta" data-whatsapp href="https://wa.me/5511980469450" target="_blank" rel="noopener">Contratar</a></li>
-      </ul>
-    </nav>
-    <div class="veu" aria-hidden="true"></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu" aria-label="Abrir menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="menu" aria-labelledby="menu-titulo">
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title h4" id="menu-titulo">Menu</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar menu"></button>
+      </div>
+      <div class="offcanvas-body align-items-xl-center">
+        <ul class="navbar-nav ms-xl-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html#inicio">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html#sobre">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html#carreira">Carreira</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html#discografia">Discografia</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html#videos">Vídeos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/galeria.html">Galeria</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/contato.html">Contato</a></li>
+        </ul>
+        <a class="btn btn-primary btn-sm ms-xl-3 mt-4 mt-xl-0" data-whatsapp href="https://wa.me/5511980469450" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i>Contratar</a>
+      </div>
+    </div>
   </div>
-</header>
+</nav>
 <main id="conteudo">
 <section class="pagina-topo">
   <div class="container">
-    <p class="migalha"><a href="../index.html">Início</a> / Termos de uso</p>
+    <nav aria-label="Você está em"><ol class="breadcrumb mb-3"><li class="breadcrumb-item"><a href="../index.html">Início</a></li><li class="breadcrumb-item active" aria-current="page">Termos de uso</li></ol></nav>
     <h1>Termos de uso</h1>
-    <p>Condições para uso deste site e do seu conteúdo.</p>
+    <p class="lead text-secondary mt-3 mb-0" style="max-width:560px">Condições para uso deste site e do seu conteúdo.</p>
   </div>
 </section>
-<section class="secao"><div class="container texto-legal">
+<section class="section-pad pt-5"><div class="container texto-legal">
   <p><em>Modelo inicial. Revise com um profissional antes de publicar.</em></p>
   <h2>Uso do conteúdo</h2>
   <p>Fotos, vídeos, logotipo e textos deste site pertencem a André Luiz ou aos respectivos titulares e não podem ser reproduzidos sem autorização.</p>
@@ -59,48 +76,49 @@
   <p>Este site aponta para plataformas de terceiros, que têm seus próprios termos.</p>
 </div></section>
 </main>
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__sobre">
-        <a class="marca" href="../index.html"><img src="../assets/images/logo-96.webp" alt="" width="44" height="44" loading="lazy"><span>André Luiz</span></a>
-        <p>Baixista freelancer de metal desde 2007. Shows, estúdio e videoclipes.</p>
-        <div class="redes" data-redes></div>
+<footer class="footer pt-5 pb-4">
+  <div class="container pt-4">
+    <div class="row gx-4 gy-5">
+      <div class="col-lg-4">
+        <a class="navbar-brand text-decoration-none" href="../index.html"><img src="../assets/images/logo-al-120.webp" alt="" width="44" height="44" loading="lazy">André Luiz</a>
+        <p class="text-secondary mt-3 mb-0" style="max-width:320px">Baixista freelancer de metal desde 2007. Shows, estúdio e videoclipes.</p>
+        <div class="redes d-flex gap-2 mt-4" data-redes></div>
       </div>
-      <div>
+      <div class="col-6 col-lg-2 offset-lg-1">
         <h2>Navegue</h2>
-        <ul>
+        <ul class="list-unstyled d-grid gap-2 mb-0">
           <li><a href="../index.html#sobre">Sobre</a></li>
-          <li><a href="../index.html#servicos">Serviços</a></li>
+          <li><a href="../index.html#carreira">Carreira</a></li>
+          <li><a href="../index.html#discografia">Discografia</a></li>
           <li><a href="../pages/galeria.html">Galeria</a></li>
-          <li><a href="../index.html#videos">Vídeos</a></li>
           <li><a href="../pages/blog.html">Blog</a></li>
         </ul>
       </div>
-      <div>
+      <div class="col-6 col-lg-3">
         <h2>Contato</h2>
-        <ul>
+        <ul class="list-unstyled d-grid gap-2 mb-0">
           <li><a data-whatsapp href="https://wa.me/5511980469450" target="_blank" rel="noopener">WhatsApp: +55 11 98046-9450</a></li>
           <li><a href="../pages/contato.html">Formulário de contato</a></li>
-          <li>São Paulo, SP</li>
+          <li class="text-secondary">São Paulo, SP</li>
         </ul>
       </div>
-      <div>
+      <div class="col-6 col-lg-2">
         <h2>Legal</h2>
-        <ul>
+        <ul class="list-unstyled d-grid gap-2 mb-0">
           <li><a href="../pages/privacidade.html">Política de privacidade</a></li>
           <li><a href="../pages/termos.html">Termos de uso</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer__base">
+    <div class="d-flex flex-wrap justify-content-between gap-3 mt-5 pt-4 border-top text-secondary small">
       <span>© <span data-ano>2026</span> André Luiz — Baixista. Todos os direitos reservados.</span>
       <span>Rock na veia, sempre.</span>
     </div>
   </div>
 </footer>
-<button class="topo" type="button" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"/></svg></button>
+<button class="topo" type="button" aria-label="Voltar ao topo"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
 
+<script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
 <script src="../assets/js/data.js" defer></script>
 <script src="../assets/js/script.js" defer></script>
 </body>

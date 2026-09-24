@@ -1,6 +1,6 @@
 # André Luiz — Baixista | site oficial
 
-Site em HTML5, CSS3 e JavaScript puro. Sem frameworks, sem etapa de build e sem dependências para instalar.
+Site em HTML5, CSS3 e JavaScript com **Bootstrap 5.3** e **Bootstrap Icons**. Sem etapa de build e sem nada para instalar: o Bootstrap já vem dentro do projeto, em `assets/vendor/`.
 
 ## Estrutura
 
@@ -11,7 +11,8 @@ Site em HTML5, CSS3 e JavaScript puro. Sem frameworks, sem etapa de build e sem 
 ├── sitemap.xml
 ├── README.md
 ├── assets/
-│   ├── css/style.css       todo o visual (cores e fontes no topo, em :root)
+│   ├── css/style.css       tema visual sobre o Bootstrap (cores e fontes no topo, em :root)
+│   ├── vendor/             Bootstrap 5.3.3 e Bootstrap Icons 1.11.3 (arquivos locais, com licenças)
 │   ├── js/data.js          TODO o conteúdo editável (serviços, fotos, vídeos, posts, redes, contato)
 │   ├── js/script.js        interações (menu, galeria, vídeos, blog, formulário, animações)
 │   ├── images/             imagens do site
@@ -44,9 +45,13 @@ Quase tudo fica em `assets/js/data.js`. Abra, edite o texto entre aspas e salve.
 
 **Contato e WhatsApp:** bloco `contato`. O número vai só com dígitos, com DDI e DDD (`5511980469450`).
 
-**Redes sociais:** bloco `redes`. Os ícones disponíveis são `instagram`, `youtube` e `whatsapp`.
+**Redes sociais:** bloco `redes`. O `icone` é um nome do Bootstrap Icons (`instagram`, `youtube`, `whatsapp`, `spotify`, `facebook`, `tiktok`…).
 
-**Serviços:** bloco `servicos`. Ícones disponíveis: `palco`, `estudio`, `camera`, `arranjo`. O `link` pode ser uma âncora (`#contato`) ou uma URL.
+**Serviços:** bloco `servicos`. O `icone` é qualquer nome do Bootstrap Icons, sem o prefixo `bi-` (catálogo em https://icons.getbootstrap.com), por exemplo `mic-fill`, `speaker-fill`, `music-note-beamed`. O `link` pode ser uma âncora (`#contato`) ou uma URL.
+
+**Discografia:** bloco `lancamentos`. Cada item tem `titulo`, `artista`, `tipo` (Álbum, Single, EP, Demo), `ano`, `detalhe`, `link` e `acao` (texto do botão). Use `video: 0` para o botão abrir o vídeo nº 0 do bloco `videos` no modal. `cor` define a cor da capa ilustrada.
+
+**Carreira (linha do tempo):** bloco `trajetoria`, em ordem. `quando` aceita ano ou texto curto ("3 anos", "Hoje").
 
 **Fotos:** coloque a imagem em `assets/images/galeria/` (de preferência uma versão grande de até 1600 px e uma miniatura de ~560 px, em `.webp` ou `.jpg`) e adicione um item no bloco `galeria`:
 
@@ -71,7 +76,7 @@ O vídeo com `destaque: true` aparece grande; os outros viram cards abaixo. Nada
 
 Para transformar o blog em dinâmico depois, basta preencher `SITE_DATA.posts` a partir de uma API ou de um arquivo JSON antes do `script.js` rodar.
 
-**Textos fixos** (títulos, "Sobre", bandas, CTA): estão direto em `index.html`, em HTML simples.
+**Textos fixos** (títulos, "Sobre", números de destaque, CTA): estão direto em `index.html`, em HTML simples com classes do Bootstrap.
 
 ## Alterando cores e fontes
 
@@ -85,7 +90,11 @@ No topo de `assets/css/style.css`:
 --fonte-texto: "Archivo", ...;                  /* textos */
 ```
 
-As fontes vêm do Google Fonts (link no `<head>` de cada página). Se trocar a fonte, troque também esse link.
+O tema mapeia essas cores para as variáveis do Bootstrap (`--bs-primary`, `--bs-body-bg` etc.), então botões, formulários e alertas seguem a paleta automaticamente. As fontes vêm do Google Fonts (link no `<head>` de cada página). Se trocar a fonte, troque também esse link.
+
+## Bootstrap
+
+O site usa Bootstrap 5.3.3 em modo escuro (`data-bs-theme="dark"`): grid e utilitários, navbar com menu lateral (offcanvas) no celular, modais para fotos e vídeos, carrossel no lightbox, breadcrumbs, badges, alertas e estilos de validação de formulário. Os arquivos ficam em `assets/vendor/bootstrap/` e `assets/vendor/bootstrap-icons/`, então o site funciona offline e não depende de CDN. Para atualizar, substitua esses arquivos por uma versão nova.
 
 ## Formulário de contato
 
@@ -107,8 +116,8 @@ O script envia os campos `nome`, `email`, `telefone`, `assunto`, `mensagem` e `a
 
 ## Recursos incluídos
 
-Menu fixo com efeito ao rolar e indicação da seção atual; menu mobile acessível (Esc fecha, foco volta ao botão); hero com entrada animada e parallax; revelação de conteúdo ao rolar; galeria com filtros, lightbox, setas, teclado (← → Esc) e arrastar no celular; vídeos em modal (YouTube em modo privacidade aprimorada, Vimeo ou MP4); blog com post em destaque e página de leitura; formulário com validação, máscara de telefone e mensagens de erro acessíveis; botão voltar ao topo; SEO (title, description, Open Graph, canonical, Schema.org Person, sitemap, robots); `prefers-reduced-motion` respeitado; lazy loading nas imagens.
+Menu fixo com efeito ao rolar e indicação da seção atual; menu lateral no celular (offcanvas do Bootstrap); destaque do lançamento atual no topo; números da carreira; linha do tempo; discografia com capas ilustradas; hero com entrada animada e parallax; revelação de conteúdo ao rolar; galeria com filtros e lightbox em carrossel (setas, teclado ← → Esc e arrastar no celular); vídeos em modal (YouTube em modo privacidade aprimorada, Vimeo ou MP4); blog com post em destaque e página de leitura; formulário com validação, máscara de telefone e mensagens de erro acessíveis; botão voltar ao topo; SEO (title, description, Open Graph, canonical, Schema.org Person, sitemap, robots); `prefers-reduced-motion` respeitado; lazy loading nas imagens.
 
 ## Dependências
 
-Nenhuma biblioteca JavaScript ou CSS. Únicos recursos externos: Google Fonts (tipografia) e, só quando o visitante clica, o player do YouTube/Vimeo e a miniatura do vídeo (com imagem local de reserva).
+Bootstrap 5.3.3 e Bootstrap Icons 1.11.3 (licença MIT, incluídos no projeto). Recursos externos: Google Fonts (tipografia) e, só quando o visitante clica, o player do YouTube/Vimeo e a miniatura do vídeo (com imagem local de reserva).
