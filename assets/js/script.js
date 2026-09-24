@@ -245,6 +245,10 @@
     postsEl && postsEl.closest("section").remove();
     if (p) {
       document.title = `${p.titulo} | André Luiz — Baixista`;
+      const meta = (sel, v) => { const m = $(sel); m && m.setAttribute("content", v); };
+      meta('meta[name="description"]', p.resumo);
+      meta('meta[property="og:title"]', document.title);
+      meta('meta[property="og:description"]', p.resumo);
       alvo.innerHTML = `
         <article class="artigo" style="padding-top:calc(var(--al-header-h) + 2rem)">
           <nav aria-label="Você está em"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="${BASE}index.html">Início</a></li><li class="breadcrumb-item"><a href="${BASE}pages/blog.html">Blog</a></li><li class="breadcrumb-item active" aria-current="page">Post</li></ol></nav>
@@ -309,22 +313,43 @@
         return;
       }
       const dados = Object.fromEntries(new FormData(form));
+      const linkWhats = () => {
+        const texto = `Olá, André! Sou ${dados.nome}.\nAssunto: ${dados.assunto}\n\n${dados.mensagem}\n\nE-mail: ${dados.email}${dados.telefone ? "\nTelefone: " + dados.telefone : ""}`;
+        return `${wa()}?text=${encodeURIComponent(texto)}`;
+      };
       const cfg = D.formulario || {};
       if (!cfg.endpoint) {
-        const texto = `Olá, André! Sou ${dados.nome}.\nAssunto: ${dados.assunto}\n\n${dados.mensagem}\n\nE-mail: ${dados.email}${dados.telefone ? "\nTelefone: " + dados.telefone : ""}`;
-        mostrar("info", `O envio por e-mail ainda não está ativo neste site, então sua mensagem <strong>não foi enviada</strong>. <a href="${wa()}?text=${encodeURIComponent(texto)}" target="_blank" rel="noopener">Enviar esta mensagem pelo WhatsApp</a>.`);
+        mostrar("info", `O envio por e-mail ainda não está ativo neste site, então sua mensagem <strong>não foi enviada</strong>. <a href="${linkWhats()}" target="_blank" rel="noopener">Enviar esta mensagem pelo WhatsApp</a>.`);
         return;
       }
+      // Campo-armadilha: só robôs preenchem. Finge sucesso e não envia nada.
+      if (dados._honey) { form.reset(); mostrar("success", "Mensagem enviada. Respondo assim que possível."); return; }
+      const envio = {
+        nome: dados.nome.trim(),
+        email: dados.email.trim(),
+        telefone: dados.telefone || "Não informado",
+        assunto: dados.assunto,
+        mensagem: dados.mensagem.trim(),
+        aceite: dados.aceite ? "Sim" : "Não",
+        pagina: location.href,
+        _subject: `Contato pelo site: ${dados.assunto} (${dados.nome.trim()})`,
+        _replyto: dados.email.trim(),
+        _template: "table",
+        _captcha: "false"
+      };
       const btn = $("button[type=submit]", form);
       btn.disabled = true; const rotulo = btn.innerHTML; btn.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>Enviando…`;
       try {
-        const resp = await fetch(cfg.endpoint, { method: cfg.metodo || "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(dados) });
-        if (!resp.ok) throw new Error(resp.status);
+        const resp = await fetch(cfg.endpoint, { method: cfg.metodo || "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(envio) });
+        const json = await resp.json().catch(() => ({}));
+        // O FormSubmit responde 200 com success "false" quando algo dá errado (ex.: formulário ainda não ativado).
+        if (!resp.ok || String(json.success) === "false") throw new Error(json.message || resp.status);
         form.reset();
-        campos.forEach((el) => el.classList.remove("is-invalid"));
+        campos.forEach((el) => { el.classList.remove("is-invalid"); el.removeAttribute("aria-invalid"); });
         mostrar("success", "Mensagem enviada. Respondo assim que possível.");
       } catch (err) {
-        mostrar("danger", `Não foi possível enviar agora. Tente de novo ou <a href="${wa()}" target="_blank" rel="noopener">fale pelo WhatsApp</a>.`);
+        console.warn("Falha no envio do formulário:", err && err.message);
+        mostrar("danger", `Não foi possível enviar agora. Tente de novo ou <a href="${linkWhats()}" target="_blank" rel="noopener">envie a mesma mensagem pelo WhatsApp</a>.`);
       } finally { btn.disabled = false; btn.innerHTML = rotulo; }
     });
   });

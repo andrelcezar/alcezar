@@ -13,12 +13,13 @@ window.SITE_DATA = {
     cidade: "São Paulo, SP"
   },
 
-  /* Formulário: cole aqui a URL do seu serviço de envio
-     (Formspree, Getform, backend próprio etc.).
-     Enquanto estiver vazio, o formulário NÃO envia e-mail:
-     ele oferece abrir o WhatsApp com a mensagem preenchida. */
+  /* Formulário: as mensagens são enviadas por e-mail pelo FormSubmit
+     (formsubmit.co) para aluiz.cez@gmail.com. No primeiro envio, o
+     FormSubmit manda um e-mail de ativação para esse endereço: clique
+     em "Activate Form" e, a partir daí, as mensagens chegam normalmente.
+     Se deixar vazio, o formulário oferece enviar pelo WhatsApp. */
   formulario: {
-    endpoint: "",
+    endpoint: "https://formsubmit.co/ajax/aluiz.cez@gmail.com",
     metodo: "POST"
   },
 
