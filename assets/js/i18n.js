@@ -240,10 +240,23 @@
       if (l === LANG) return;
       const url = new URL(location.href);
       url.searchParams.delete("lang");
+      // sem o #âncora: com ela (ex.: #contato, após usar o menu) o navegador
+      // só rolaria até a seção em vez de recarregar a página no outro idioma
+      url.hash = "";
       try { localStorage.setItem(CHAVE, l); } catch (e) { url.searchParams.set("lang", l); }
-      location.href = url.toString();
+      try { sessionStorage.setItem("al-lang-y", String(Math.round(window.scrollY))); } catch (e) { /* ok */ }
+      if (url.href === location.href) location.reload();
+      else location.replace(url.href);
     });
   });
+
+  // depois de trocar o idioma, volta para o mesmo ponto da página
+  let voltarY = null;
+  try { voltarY = sessionStorage.getItem("al-lang-y"); sessionStorage.removeItem("al-lang-y"); } catch (e) { /* ok */ }
+  if (voltarY !== null) {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.addEventListener("load", () => window.scrollTo({ top: +voltarY, behavior: "instant" }));
+  }
 
   const liberar = () => html.classList.remove("i18n-pendente");
   document.addEventListener("DOMContentLoaded", liberar);
