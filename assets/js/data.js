@@ -74,8 +74,19 @@ window.SITE_DATA = {
       texto: "Presença de palco em frente à câmera, com a experiência do clipe de “Heavy Play”, gravado com a High Moonlight.",
       link: "#videos", acao: "Ver o clipe" },
     { icone: "music-note-beamed", titulo: "Criação de linhas de baixo",
-      texto: "Do riff de thrash ao arranjo sinfônico: construo a linha que serve à música, não ao ego.",
+      texto: "Do riff de thrash ao arranjo sinfônico: construo a linha que serve à música, não ao ego. Hoje gravo as linhas de baixo do Armistice Front, projeto de Joe Howard (Cleveland/Detroit, EUA).",
       link: "#contato", acao: "Conversar" }
+  ],
+
+  /* Depoimentos. A seção só aparece no site quando pelo menos um item
+     tiver "texto" preenchido. Cole o texto exatamente como a pessoa escreveu.
+     traducao: opcional, aparece abaixo do original (ex.: depoimento em inglês).
+     foto: opcional, caminho de uma imagem quadrada (ex.: assets/images/joe.webp). */
+  depoimentos: [
+    { nome: "Joe Howard", papel: "Armistice Front", local: "Cleveland/Detroit, EUA",
+      texto: "",       // cole aqui o depoimento do Joe
+      traducao: "",    // opcional: tradução para o português
+      foto: "" }
   ],
 
   /* categoria: usada nos filtros da galeria.
