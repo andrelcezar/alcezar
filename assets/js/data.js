@@ -108,8 +108,8 @@ window.SITE_DATA = {
      foto: opcional, caminho de uma imagem quadrada (ex.: assets/images/joe.webp). */
   depoimentos: [
     { nome: "Joe Howard", papel: "Armistice Front", local: "Cleveland/Detroit, EUA",
-      texto: "",       // cole aqui o depoimento do Joe
-      traducao: "",    // opcional: tradução para o português
+      texto: "Andre’s melodic freestyling is truly exceptional. He has a rare ability to translate emotion into music, creating melodies that feel authentic, powerful, and deeply expressive. Where words fail, Andre lets the music speak.",
+      traducao: "O improviso melódico do André é realmente excepcional. Ele tem uma rara capacidade de traduzir emoção em música, criando melodias que soam autênticas, poderosas e profundamente expressivas. Onde as palavras falham, o André deixa a música falar.",
       foto: "",
       en: { local: "Cleveland/Detroit, USA", traducao: "" } }
   ],
