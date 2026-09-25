@@ -53,7 +53,7 @@ Quase tudo fica em `assets/js/data.js`. Abra, edite o texto entre aspas e salve.
 
 **Carreira (linha do tempo):** bloco `trajetoria`, em ordem. `quando` aceita ano ou texto curto ("3 anos", "Hoje").
 
-**Depoimentos:** bloco `depoimentos`. A seção (entre o Blog e o "Vamos tocar?") só aparece quando pelo menos um item tem `texto` preenchido. Campos: `nome`, `papel` (banda ou projeto), `local`, `texto` (o depoimento como a pessoa escreveu), `traducao` (opcional, aparece abaixo em itálico) e `foto` (opcional, imagem quadrada; sem foto, aparece a inicial do nome). Com um depoimento, o card fica largo; com dois ou mais, em duas colunas.
+**Depoimentos:** bloco `depoimentos`. A seção (entre o Blog e o "Vamos tocar?") mostra um card por item; enquanto o `texto` estiver vazio, o card aparece como "Depoimento em breve". Campos: `nome`, `papel` (banda ou projeto), `local`, `texto` (o depoimento como a pessoa escreveu), `traducao` (opcional, aparece abaixo em itálico) e `foto` (opcional, imagem quadrada; sem foto, aparece a inicial do nome). Com um depoimento, o card fica largo; com dois ou mais, em duas colunas.
 
 **Fotos:** coloque a imagem em `assets/images/galeria/` (de preferência uma versão grande de até 1600 px e uma miniatura de ~560 px, em `.webp` ou `.jpg`) e adicione um item no bloco `galeria`:
 
@@ -79,6 +79,8 @@ O vídeo com `destaque: true` aparece grande; os outros viram cards abaixo. Nada
 Para transformar o blog em dinâmico depois, basta preencher `SITE_DATA.posts` a partir de uma API ou de um arquivo JSON antes do `script.js` rodar.
 
 **Textos fixos** (títulos, "Sobre", números de destaque, CTA): estão direto em `index.html`, em HTML simples com classes do Bootstrap.
+
+**Atualização no navegador:** os arquivos CSS e JS são carregados com `?v=AAAAMMDD` no fim do endereço, em todas as páginas. Depois de editar `data.js`, `script.js` ou `style.css`, troque esse número (localizar e substituir na pasta) para os visitantes receberem a versão nova em vez da guardada em cache.
 
 ## Alterando cores e fontes
 
