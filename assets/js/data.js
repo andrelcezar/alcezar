@@ -78,8 +78,8 @@ window.SITE_DATA = {
       texto: "Faço parte da banda de suporte da Thais no projeto Trapezia, com apresentação em Santos (SP).",
       en: { quando: "Live", titulo: "Trapezia — Thais's backing band", texto: "I play in Thais's backing band for the Trapezia project, including a live show in Santos, Brazil." } },
     { quando: "Hoje", titulo: "Freelancer e RootingDoom",
-      texto: "Shows, substituições, estúdio e clipes como freelancer, e o RootingDoom, meu projeto autoral.",
-      en: { quando: "Today", titulo: "Freelancer and RootingDoom", texto: "Live shows, fill-ins, studio sessions and music videos as a freelancer, plus RootingDoom, my own original project." } }
+      texto: "Shows, substituições, estúdio e clipes como freelancer, e o RootingDoom, meu projeto de som próprio.",
+      en: { quando: "Today", titulo: "Freelancer and RootingDoom", texto: "Live shows, fill-ins, studio sessions and music videos as a freelancer, plus RootingDoom, my own music project." } }
   ],
 
   servicos: [
@@ -231,7 +231,7 @@ window.SITE_DATA = {
       conteudo: [
         "Thrash, heavy e black metal são as vertentes onde me sinto em casa. Em cada uma o baixo cumpre um papel diferente.",
         "No thrash, como na Sophie's Threat, o baixo acompanha a palhetada rápida da guitarra e dá corpo aos riffs. No heavy clássico, como na High Moonlight, o groove e as linhas melódicas ganham espaço. No black metal, o baixo preenche a densidade e segura a base harmônica.",
-        "O RootingDoom, meu projeto autoral, é onde junto essas influências."
+        "O RootingDoom, meu projeto de som próprio, é onde junto essas influências."
       ],
       en: {
         titulo: "Thrash, heavy and black: why the bass matters in metal",
@@ -240,7 +240,7 @@ window.SITE_DATA = {
         conteudo: [
           "Thrash, heavy and black metal are the styles where I feel at home. In each of them the bass plays a different role.",
           "In thrash, as with Sophie's Threat, the bass follows the guitar's fast picking and gives the riffs their weight. In classic heavy metal, as with High Moonlight, groove and melodic lines get more room. In black metal, the bass fills in the density and holds down the harmonic foundation.",
-          "RootingDoom, my own original project, is where I bring these influences together."
+          "RootingDoom, my own music project, is where I bring these influences together."
         ]
       } }
   ]
