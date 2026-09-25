@@ -95,6 +95,24 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
   .offcanvas .nav-link::after { left: 0; right: auto; width: 60px; bottom: 0; }
 }
 
+/* ---------- Seletor de idioma ---------- */
+.idioma { display: inline-flex; margin-left: auto; margin-right: .75rem; border: 1px solid var(--al-linha); border-radius: 999px; padding: 2px; }
+.idioma button { border: 0; background: transparent; color: var(--al-cinza); font-size: .8rem; font-weight: 700; letter-spacing: .06em; padding: .35rem .7rem; min-width: 44px; min-height: 36px; border-radius: 999px; transition: background .2s, color .2s; }
+.idioma button:hover { color: #fff; }
+.idioma button[aria-pressed="true"] { background: var(--al-vermelho); color: #fff; }
+.idioma button:focus-visible { outline: 2px solid var(--al-osso); outline-offset: 2px; }
+@media (min-width: 1200px) { .idioma { order: 3; margin: 0 0 0 1rem; } }
+.navbar-al > .container { flex-wrap: nowrap; }
+@media (max-width: 419.98px) {
+  .navbar-brand { font-size: 1.2rem; gap: .45rem; margin-right: 0; }
+  .navbar-brand img { width: 36px; height: 36px; }
+  .idioma { margin-right: .5rem; }
+  .idioma button { min-width: 38px; padding: .3rem .5rem; }
+  .navbar-toggler { padding: .5rem .55rem; }
+}
+/* com o inglês ativo, a página só aparece depois de traduzida (i18n.js) */
+.i18n-pendente body { opacity: 0; }
+
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding: calc(var(--al-header-h) + 2.5rem) 0 5rem; }
 @supports (min-height: 100svh) { .hero { min-height: 100svh; } }

@@ -14,6 +14,7 @@ Site em HTML5, CSS3 e JavaScript com **Bootstrap 5.3** e **Bootstrap Icons**. Se
 │   ├── css/style.css       tema visual sobre o Bootstrap (cores e fontes no topo, em :root)
 │   ├── vendor/             Bootstrap 5.3.3 e Bootstrap Icons 1.11.3 (arquivos locais, com licenças)
 │   ├── js/data.js          TODO o conteúdo editável (serviços, fotos, vídeos, posts, redes, contato)
+│   ├── js/i18n.js          idiomas PT/EN: seletor e dicionário de tradução
 │   ├── js/script.js        interações (menu, galeria, vídeos, blog, formulário, animações)
 │   ├── images/             imagens do site
 │   │   └── galeria/        fotos da galeria (versão grande + "-thumb")
@@ -81,6 +82,18 @@ Para transformar o blog em dinâmico depois, basta preencher `SITE_DATA.posts` a
 **Textos fixos** (títulos, "Sobre", números de destaque, CTA): estão direto em `index.html`, em HTML simples com classes do Bootstrap.
 
 **Atualização no navegador:** os arquivos CSS e JS são carregados com `?v=AAAAMMDD` no fim do endereço, em todas as páginas. Depois de editar `data.js`, `script.js` ou `style.css`, troque esse número (localizar e substituir na pasta) para os visitantes receberem a versão nova em vez da guardada em cache.
+
+## Idiomas (português / inglês)
+
+O site é bilíngue. O seletor **PT | EN** fica na barra do topo, visível também no celular.
+
+- **Idioma inicial:** navegador em português abre em PT e qualquer outro idioma abre em EN. A escolha do visitante fica guardada no navegador.
+- **Link direto:** `?lang=en` ou `?lang=pt` no fim do endereço força o idioma, por exemplo `https://seusite/?lang=en` para mandar a alguém de fora do Brasil.
+- **Textos fixos das páginas (HTML):** estão em `assets/js/i18n.js`, no dicionário `EN`. A chave é o texto exato em português e o valor é a tradução. **Se mudar um texto em português no HTML, mude também a chave no dicionário**, senão ele aparece em português na versão em inglês.
+- **Conteúdo de `data.js`:** cada item tem um bloco `en: { ... }` com os campos traduzidos. O que não estiver no `en` aparece igual nos dois idiomas.
+- **Depoimentos:** `texto` é o original, como a pessoa escreveu. `traducao` aparece só na versão em português; no bloco `en`, deixe `traducao: ""` quando o original já estiver em inglês.
+- **Formulário:** a validação e os avisos aparecem no idioma do visitante. O e-mail que chega continua em português, com um campo `idioma` dizendo em qual versão a pessoa escreveu. Na versão em inglês o telefone aceita números de outros países e não usa a máscara brasileira.
+- **Google:** a tradução acontece no navegador, então os buscadores indexam principalmente a versão em português.
 
 ## Alterando cores e fontes
 
