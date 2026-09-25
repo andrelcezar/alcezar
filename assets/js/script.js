@@ -7,6 +7,10 @@
   "use strict";
 
   const D = window.SITE_DATA || {};
+  const I = window.I18N || { lang: "pt", t: (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => (v && v[k] !== undefined ? v[k] : m)), tr: (x) => x };
+  const t = I.t;
+  const tr = I.tr;
+  const EN = I.lang === "en";
   const BS = window.bootstrap;
   const BASE = document.body.dataset.base || "";
   const EH_HOME = document.body.dataset.pagina === "inicio";
@@ -18,7 +22,7 @@
   const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const caminho = (p) => (/^(https?:|mailto:|tel:|data:)/.test(p) ? p : BASE + p);
   const linkInterno = (href) => (href.startsWith("#") && !EH_HOME ? BASE + "index.html" + href : href);
-  const dataBR = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+  const dataBR = (iso) => new Date(iso + "T12:00:00").toLocaleDateString(EN ? "en-US" : "pt-BR", { day: "2-digit", month: "long", year: "numeric" });
   const icone = (n) => `<i class="bi bi-${esc(n)}" aria-hidden="true"></i>`;
   const wa = () => "https://wa.me/" + ((D.contato && D.contato.whatsapp) || "");
 
@@ -46,7 +50,7 @@
   /* ---------- Redes e contato ---------- */
   $$("[data-redes]").forEach((el) => {
     el.innerHTML = (D.redes || []).map((r) =>
-      `<a href="${esc(r.url)}" target="_blank" rel="noopener" aria-label="${esc(r.nome)} (abre em nova aba)">${icone(r.icone)}</a>`).join("");
+      `<a href="${esc(r.url)}" target="_blank" rel="noopener" aria-label="${esc(t("{nome} (abre em nova aba)", { nome: r.nome }))}">${icone(r.icone)}</a>`).join("");
   });
   $$("[data-lista-contato]").forEach((el) => {
     el.innerHTML = (D.redes || []).map((r) =>
@@ -59,18 +63,18 @@
   /* ---------- Linha do tempo ---------- */
   const tl = $("[data-trajetoria]");
   if (tl) {
-    tl.innerHTML = (D.trajetoria || []).map((t) => `
+    tl.innerHTML = (D.trajetoria || []).map(tr).map((x) => `
       <li class="revelar">
-        <span class="timeline__quando">${esc(t.quando)}</span>
-        <h3>${esc(t.titulo)}</h3>
-        <p>${esc(t.texto)}</p>
+        <span class="timeline__quando">${esc(x.quando)}</span>
+        <h3>${esc(x.titulo)}</h3>
+        <p>${esc(x.texto)}</p>
       </li>`).join("");
   }
 
   /* ---------- Discografia ---------- */
   const discoEl = $("[data-lancamentos]");
   if (discoEl) {
-    discoEl.innerHTML = (D.lancamentos || []).map((l) => {
+    discoEl.innerHTML = (D.lancamentos || []).map(tr).map((l) => {
       const acao = l.video !== undefined
         ? `<button type="button" class="btn btn-primary btn-sm" data-video="${+l.video}">${icone("play-fill")}${esc(l.acao)}</button>`
         : l.link ? `<a class="btn btn-primary btn-sm" href="${esc(l.link)}" target="_blank" rel="noopener">${icone("headphones")}${esc(l.acao)}</a>` : "";
@@ -96,7 +100,7 @@
   /* ---------- Serviços ---------- */
   const servicosEl = $("[data-servicos]");
   if (servicosEl) {
-    servicosEl.innerHTML = (D.servicos || []).map((s) => `
+    servicosEl.innerHTML = (D.servicos || []).map(tr).map((s) => `
       <div class="col">
         <article class="servico revelar">
           <span class="servico__icone" aria-hidden="true">${icone(s.icone)}</span>
@@ -109,7 +113,7 @@
 
   /* ---------- Depoimentos (item sem texto aparece como "em breve") ---------- */
   const depoEl = $("[data-depoimentos]");
-  const depos = (D.depoimentos || []).filter((d) => d.nome);
+  const depos = (D.depoimentos || []).map(tr).filter((d) => d.nome);
   if (depoEl && depos.length) {
     const autor = (d) => `
           <figcaption class="depoimento__autor">
@@ -120,8 +124,8 @@
       const texto = (d.texto || "").trim();
       const corpo = texto
         ? `<blockquote class="mb-0"><p>${esc(texto)}</p></blockquote>
-          ${d.traducao ? `<p class="depoimento__traducao"><span class="visually-hidden">Tradução: </span>${esc(d.traducao)}</p>` : ""}`
-        : `<p class="depoimento__breve">Depoimento em breve.</p>`;
+          ${d.traducao ? `<p class="depoimento__traducao"><span class="visually-hidden">${t("Tradução: ")}</span>${esc(d.traducao)}</p>` : ""}`
+        : `<p class="depoimento__breve">${t("Depoimento em breve.")}</p>`;
       return `
       <div class="col">
         <figure class="depoimento${texto ? "" : " depoimento--breve"} revelar">
@@ -137,11 +141,11 @@
   }
 
   /* ---------- Galeria, filtros e lightbox (modal + carrossel) ---------- */
-  const fotos = D.galeria || [];
+  const fotos = (D.galeria || []).map(tr);
   const galeriaEl = $("[data-galeria]");
   if (galeriaEl) {
     galeriaEl.innerHTML = fotos.map((f, i) => `
-      <button type="button" class="foto foto--${esc(f.tamanho || "normal")} revelar" data-indice="${i}" data-categoria="${esc(f.categoria)}" aria-label="Ampliar foto: ${esc(f.titulo)}">
+      <button type="button" class="foto foto--${esc(f.tamanho || "normal")} revelar" data-indice="${i}" data-categoria="${esc(f.categoria)}" aria-label="${esc(t("Ampliar foto: {titulo}", { titulo: f.titulo }))}">
         <img src="${esc(caminho(f.thumb || f.src))}" alt="${esc(f.titulo)} — ${esc(f.legenda)}" loading="lazy" decoding="async">
         <span class="foto__info"><strong>${esc(f.titulo)}</strong><span>${esc(f.legenda)}</span></span>
       </button>`).join("");
@@ -149,7 +153,7 @@
     const filtrosEl = $("[data-filtros]");
     if (filtrosEl) {
       const cats = ["todas", ...new Set(fotos.map((f) => f.categoria))];
-      const nomes = { todas: "Todas", palco: "Palco", retrato: "Retratos", arte: "Artes" };
+      const nomes = { todas: t("Todas"), palco: t("Palco"), retrato: t("Retratos"), arte: t("Artes") };
       filtrosEl.innerHTML = cats.map((c, i) => `<button type="button" class="btn btn-outline-light" data-filtro="${esc(c)}" aria-pressed="${i === 0}">${esc(nomes[c] || c)}</button>`).join("");
       filtrosEl.addEventListener("click", (e) => {
         const b = e.target.closest("[data-filtro]"); if (!b) return;
@@ -191,7 +195,7 @@
   }
 
   /* ---------- Vídeos ---------- */
-  const videos = D.videos || [];
+  const videos = (D.videos || []).map(tr);
   const embed = (v) => {
     // O YouTube exige saber de qual site vem o vídeo (referrer). Sem isso, mostra o "Erro 153".
     const origem = encodeURIComponent(location.origin);
@@ -200,7 +204,7 @@
     return `<video src="${esc(caminho(v.id))}" controls autoplay playsinline></video>`;
   };
   const capa = (v, i, grande) => `
-    <button type="button" class="video-capa" data-video="${i}" aria-label="Assistir: ${esc(v.titulo)}">
+    <button type="button" class="video-capa" data-video="${i}" aria-label="${esc(t("Assistir: {titulo}", { titulo: v.titulo }))}">
       <img src="${esc(caminho(v.thumb || v.thumbReserva))}" ${v.thumbReserva ? `data-reserva="${esc(caminho(v.thumbReserva))}"` : ""} alt="" loading="${grande ? "eager" : "lazy"}" decoding="async">
       <span class="play" aria-hidden="true">${icone("play-fill")}</span>
     </button>`;
@@ -215,7 +219,7 @@
         <span class="traco" aria-hidden="true"></span>
         <h3 class="mb-3" style="font-size:clamp(2.2rem,4vw,3rem)">${esc(v.titulo)}</h3>
         <p class="text-secondary">${esc(v.descricao)}</p>
-        <button type="button" class="btn btn-primary mt-2" data-video="${iD}">${icone("play-fill")}Assistir agora</button>
+        <button type="button" class="btn btn-primary mt-2" data-video="${iD}">${icone("play-fill")}${t("Assistir agora")}</button>
       </div>`;
     if (listaEl) {
       const outros = videos.map((x, i) => [x, i]).filter(([, i]) => i !== iD);
@@ -250,7 +254,7 @@
   }
 
   /* ---------- Blog ---------- */
-  const posts = (D.posts || []).slice().sort((a, b) => b.data.localeCompare(a.data));
+  const posts = (D.posts || []).map(tr).sort((a, b) => b.data.localeCompare(a.data));
   const urlPost = (p) => `${BASE}pages/blog.html?post=${encodeURIComponent(p.slug)}`;
   const cardPost = (p, destaque) => `
     <div class="${destaque ? "col-12" : "col-md-6"}">
@@ -260,7 +264,7 @@
           <div class="post__meta"><span class="post__cat">${esc(p.categoria)}</span><time datetime="${esc(p.data)}">${dataBR(p.data)}</time></div>
           <h3>${esc(p.titulo)}</h3>
           <p>${esc(p.resumo)}</p>
-          <a class="link-seta align-self-start" href="${urlPost(p)}">Leia mais<span class="visually-hidden">: ${esc(p.titulo)}</span>${icone("arrow-right")}</a>
+          <a class="link-seta align-self-start" href="${urlPost(p)}">${t("Leia mais")}<span class="visually-hidden">: ${esc(p.titulo)}</span>${icone("arrow-right")}</a>
         </div>
       </article>
     </div>`;
@@ -273,22 +277,22 @@
     $(".pagina-topo") && $(".pagina-topo").remove();
     postsEl && postsEl.closest("section").remove();
     if (p) {
-      document.title = `${p.titulo} | André Luiz — Baixista`;
+      document.title = `${p.titulo} | ${t("André Luiz — Baixista")}`;
       const meta = (sel, v) => { const m = $(sel); m && m.setAttribute("content", v); };
       meta('meta[name="description"]', p.resumo);
       meta('meta[property="og:title"]', document.title);
       meta('meta[property="og:description"]', p.resumo);
       alvo.innerHTML = `
         <article class="artigo" style="padding-top:calc(var(--al-header-h) + 2rem)">
-          <nav aria-label="Você está em"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="${BASE}index.html">Início</a></li><li class="breadcrumb-item"><a href="${BASE}pages/blog.html">Blog</a></li><li class="breadcrumb-item active" aria-current="page">Post</li></ol></nav>
+          <nav aria-label="${t("Você está em")}"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="${BASE}index.html">${t("Início")}</a></li><li class="breadcrumb-item"><a href="${BASE}pages/blog.html">Blog</a></li><li class="breadcrumb-item active" aria-current="page">${t("Post")}</li></ol></nav>
           <div class="post__meta"><span class="post__cat">${esc(p.categoria)}</span><time datetime="${esc(p.data)}">${dataBR(p.data)}</time></div>
           <h1>${esc(p.titulo)}</h1>
           <img class="artigo__capa" src="${esc(caminho(p.capa))}" alt="">
           <div class="artigo__texto">${(p.conteudo || [p.resumo]).map((t) => `<p class="mb-0">${esc(t)}</p>`).join("")}</div>
-          <p class="mt-5"><a class="link-seta" href="${BASE}pages/blog.html">Voltar para o blog${icone("arrow-right")}</a></p>
+          <p class="mt-5"><a class="link-seta" href="${BASE}pages/blog.html">${t("Voltar para o blog")}${icone("arrow-right")}</a></p>
         </article>`;
     } else {
-      alvo.innerHTML = `<div class="artigo" style="padding-top:calc(var(--al-header-h) + 2rem)"><h1>Post não encontrado</h1><p class="mt-3">O endereço pode ter mudado. <a class="link-seta" href="${BASE}pages/blog.html">Ver todos os posts</a></p></div>`;
+      alvo.innerHTML = `<div class="artigo" style="padding-top:calc(var(--al-header-h) + 2rem)"><h1>${t("Post não encontrado")}</h1><p class="mt-3">${t("O endereço pode ter mudado.")} <a class="link-seta" href="${BASE}pages/blog.html">${t("Ver todos os posts")}</a></p></div>`;
     }
     artigoEl.hidden = false;
   } else if (postsEl) {
@@ -302,12 +306,12 @@
   $$("form[data-form-contato]").forEach((form) => {
     const status = $("[data-form-status]", form);
     const regras = {
-      nome: (v) => (v.trim().length >= 2 ? "" : "Informe seu nome."),
-      email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Informe um e-mail válido, como nome@exemplo.com."),
-      telefone: (v) => { const n = v.replace(/\D/g, ""); return !n || (n.length >= 10 && n.length <= 13) ? "" : "Telefone com DDD, por exemplo (11) 91234-5678."; },
-      assunto: (v) => (v ? "" : "Escolha um assunto."),
-      mensagem: (v) => (v.trim().length >= 20 ? "" : `Escreva pelo menos 20 caracteres (faltam ${20 - v.trim().length}).`),
-      aceite: (_, el) => (el.checked ? "" : "Marque para autorizar o contato.")
+      nome: (v) => (v.trim().length >= 2 ? "" : t("Informe seu nome.")),
+      email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : t("Informe um e-mail válido, como nome@exemplo.com.")),
+      telefone: (v) => { const n = v.replace(/\D/g, ""); const [min, max] = EN ? [7, 15] : [10, 13]; return !n || (n.length >= min && n.length <= max) ? "" : t("Telefone com DDD, por exemplo (11) 91234-5678."); },
+      assunto: (v) => (v ? "" : t("Escolha um assunto.")),
+      mensagem: (v) => (v.trim().length >= 20 ? "" : t("Escreva pelo menos 20 caracteres (faltam {n}).", { n: 20 - v.trim().length })),
+      aceite: (_, el) => (el.checked ? "" : t("Marque para autorizar o contato."))
     };
     const validar = (el) => {
       const r = regras[el.name]; if (!r) return true;
@@ -319,7 +323,8 @@
       return !msg;
     };
     const tel = form.elements.telefone;
-    tel && tel.addEventListener("input", () => {
+    // máscara brasileira só na versão em português (em inglês o número pode ser de outro país)
+    tel && !EN && tel.addEventListener("input", () => {
       const n = tel.value.replace(/\D/g, "").slice(0, 11);
       if (n.length > 10) tel.value = n.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
       else if (n.length > 6) tel.value = n.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
@@ -336,23 +341,23 @@
       const campos = $$("input, select, textarea", form).filter((el) => regras[el.name]);
       const ok = campos.map(validar).every(Boolean);
       if (!ok) {
-        mostrar("danger", "Confira os campos destacados antes de enviar.");
+        mostrar("danger", t("Confira os campos destacados antes de enviar."));
         const primeiro = campos.find((el) => el.classList.contains("is-invalid"));
         primeiro && primeiro.focus();
         return;
       }
       const dados = Object.fromEntries(new FormData(form));
       const linkWhats = () => {
-        const texto = `Olá, André! Sou ${dados.nome}.\nAssunto: ${dados.assunto}\n\n${dados.mensagem}\n\nE-mail: ${dados.email}${dados.telefone ? "\nTelefone: " + dados.telefone : ""}`;
+        const texto = t("Olá, André! Sou {nome}.\nAssunto: {assunto}\n\n{mensagem}\n\nE-mail: {email}", dados) + (dados.telefone ? t("\nTelefone: {telefone}", dados) : "");
         return `${wa()}?text=${encodeURIComponent(texto)}`;
       };
       const cfg = D.formulario || {};
       if (!cfg.endpoint) {
-        mostrar("info", `O envio por e-mail ainda não está ativo neste site, então sua mensagem <strong>não foi enviada</strong>. <a href="${linkWhats()}" target="_blank" rel="noopener">Enviar esta mensagem pelo WhatsApp</a>.`);
+        mostrar("info", t('O envio por e-mail ainda não está ativo neste site, então sua mensagem <strong>não foi enviada</strong>. <a href="{link}" target="_blank" rel="noopener">Enviar esta mensagem pelo WhatsApp</a>.', { link: esc(linkWhats()) }));
         return;
       }
       // Campo-armadilha: só robôs preenchem. Finge sucesso e não envia nada.
-      if (dados._honey) { form.reset(); mostrar("success", "Mensagem enviada. Respondo assim que possível."); return; }
+      if (dados._honey) { form.reset(); mostrar("success", t("Mensagem enviada. Respondo assim que possível.")); return; }
       const envio = {
         nome: dados.nome.trim(),
         email: dados.email.trim(),
@@ -360,6 +365,7 @@
         assunto: dados.assunto,
         mensagem: dados.mensagem.trim(),
         aceite: dados.aceite ? "Sim" : "Não",
+        idioma: EN ? "Inglês" : "Português",
         pagina: location.href,
         _subject: `Contato pelo site: ${dados.assunto} (${dados.nome.trim()})`,
         _replyto: dados.email.trim(),
@@ -367,7 +373,7 @@
         _captcha: "false"
       };
       const btn = $("button[type=submit]", form);
-      btn.disabled = true; const rotulo = btn.innerHTML; btn.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>Enviando…`;
+      btn.disabled = true; const rotulo = btn.innerHTML; btn.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>${t("Enviando…")}`;
       try {
         const resp = await fetch(cfg.endpoint, { method: cfg.metodo || "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(envio) });
         const json = await resp.json().catch(() => ({}));
@@ -375,10 +381,10 @@
         if (!resp.ok || String(json.success) === "false") throw new Error(json.message || resp.status);
         form.reset();
         campos.forEach((el) => { el.classList.remove("is-invalid"); el.removeAttribute("aria-invalid"); });
-        mostrar("success", "Mensagem enviada. Respondo assim que possível.");
+        mostrar("success", t("Mensagem enviada. Respondo assim que possível."));
       } catch (err) {
         console.warn("Falha no envio do formulário:", err && err.message);
-        mostrar("danger", `Não foi possível enviar agora. Tente de novo ou <a href="${linkWhats()}" target="_blank" rel="noopener">envie a mesma mensagem pelo WhatsApp</a>.`);
+        mostrar("danger", t('Não foi possível enviar agora. Tente de novo ou <a href="{link}" target="_blank" rel="noopener">envie a mesma mensagem pelo WhatsApp</a>.', { link: esc(linkWhats()) }));
       } finally { btn.disabled = false; btn.innerHTML = rotulo; }
     });
   });
