@@ -74,6 +74,9 @@ window.SITE_DATA = {
     { quando: "2025", titulo: "High Moonlight — “Lycans”",
       texto: "Gravo o baixo do álbum de estreia da veterana do heavy metal paulistano e o videoclipe de “Heavy Play”.",
       en: { texto: "I record bass on the debut album by this veteran of the São Paulo heavy metal scene, plus the music video for “Heavy Play”." } },
+    { quando: "Ao vivo", titulo: "Trapezia — banda de apoio da Thais",
+      texto: "Faço parte da banda de suporte da Thais no projeto Trapezia, com apresentação em Santos (SP).",
+      en: { quando: "Live", titulo: "Trapezia — Thais's backing band", texto: "I play in Thais's backing band for the Trapezia project, including a live show in Santos, Brazil." } },
     { quando: "Hoje", titulo: "Freelancer e RootingDoom",
       texto: "Shows, substituições, estúdio e clipes como freelancer, e o RootingDoom, meu projeto autoral.",
       en: { quando: "Today", titulo: "Freelancer and RootingDoom", texto: "Live shows, fill-ins, studio sessions and music videos as a freelancer, plus RootingDoom, my own original project." } }
