@@ -67,7 +67,7 @@ Quase tudo fica em `assets/js/data.js`. Abra, edite o texto entre aspas e salve.
 
 **Vídeos:** bloco `videos`. Tipos aceitos:
 
-- YouTube: `tipo: "youtube"`, `id: "09d6qC0DHO8"` (o código depois de `youtu.be/`)
+- YouTube: `tipo: "youtube"`, `id: "QfadM3NaDBE"` (o código depois de `youtu.be/`)
 - Vimeo: `tipo: "vimeo"`, `id: "123456789"`
 - MP4 próprio: coloque o arquivo em `assets/videos/` e use `tipo: "mp4"`, `id: "assets/videos/nome.mp4"`
 
