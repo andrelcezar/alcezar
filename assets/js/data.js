@@ -117,6 +117,17 @@ window.SITE_DATA = {
   /* categoria: usada nos filtros da galeria.
      tamanho: "normal" | "alta" | "larga" (define o bloco no grid) */
   galeria: [
+    /* Show da High Moonlight (fotos GruTons) */
+    { src: "assets/images/galeria/hml-andre-baixo.webp", thumb: "assets/images/galeria/hml-andre-baixo-thumb.webp", titulo: "Grave em primeiro plano", legenda: "Ao vivo com a High Moonlight", categoria: "palco", tamanho: "alta",
+      en: { titulo: "Low end up front", legenda: "Live with High Moonlight" } },
+    { src: "assets/images/galeria/hml-banda-palco.webp", thumb: "assets/images/galeria/hml-banda-palco-thumb.webp", titulo: "High Moonlight ao vivo", legenda: "A banda completa em ação", categoria: "palco", tamanho: "larga",
+      en: { titulo: "High Moonlight live", legenda: "The full band in action" } },
+    { src: "assets/images/galeria/hml-ao-vivo.webp", thumb: "assets/images/galeria/hml-ao-vivo-thumb.webp", titulo: "Energia de palco", legenda: "Show da High Moonlight", categoria: "palco", tamanho: "alta",
+      en: { titulo: "Stage energy", legenda: "High Moonlight show" } },
+    { src: "assets/images/galeria/hml-palco-completo.webp", thumb: "assets/images/galeria/hml-palco-completo-thumb.webp", titulo: "Palco HML", legenda: "A banda sob o logo da High Moonlight", categoria: "palco", tamanho: "alta",
+      en: { titulo: "HML stage", legenda: "The band under the High Moonlight logo" } },
+    { src: "assets/images/galeria/hml-teatro.webp", thumb: "assets/images/galeria/hml-teatro-thumb.webp", titulo: "Do fundo da plateia", legenda: "O palco inteiro da High Moonlight", categoria: "palco", tamanho: "larga",
+      en: { titulo: "From the back of the room", legenda: "High Moonlight's full stage" } },
     { src: "assets/images/galeria/rosto.webp", thumb: "assets/images/galeria/rosto-thumb.webp", titulo: "Concentração", legenda: "Sob as luzes do palco", categoria: "palco", tamanho: "alta",
       en: { titulo: "Focus", legenda: "Under the stage lights" } },
     { src: "assets/images/galeria/banner.webp", thumb: "assets/images/galeria/banner-thumb.webp", titulo: "Identidade AL", legenda: "Banner oficial do canal", categoria: "arte", tamanho: "larga",
