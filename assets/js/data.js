@@ -78,6 +78,17 @@ window.SITE_DATA = {
       link: "#contato", acao: "Conversar" }
   ],
 
+  /* Depoimentos. A seção só aparece no site quando pelo menos um item
+     tiver "texto" preenchido. Cole o texto exatamente como a pessoa escreveu.
+     traducao: opcional, aparece abaixo do original (ex.: depoimento em inglês).
+     foto: opcional, caminho de uma imagem quadrada (ex.: assets/images/joe.webp). */
+  depoimentos: [
+    { nome: "Joe Howard", papel: "Armistice Front", local: "Cleveland/Detroit, EUA",
+      texto: "",       // cole aqui o depoimento do Joe
+      traducao: "",    // opcional: tradução para o português
+      foto: "" }
+  ],
+
   /* categoria: usada nos filtros da galeria.
      tamanho: "normal" | "alta" | "larga" (define o bloco no grid) */
   galeria: [

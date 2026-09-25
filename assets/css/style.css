@@ -196,6 +196,16 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 .servico h3 { font-size: 1.9rem; margin: 0; }
 .servico p { color: var(--al-cinza); font-size: 1rem; flex: 1; margin: 0; }
 
+/* ---------- Depoimentos ---------- */
+.depoimento { height: 100%; margin: 0; background: var(--al-grafite-2); border: 1px solid var(--al-linha); border-left: 3px solid var(--al-vermelho); border-radius: var(--bs-border-radius-lg); padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.depoimentos--unico > .col { max-width: 860px; }
+.depoimento__aspas { color: var(--al-vermelho); font-size: 2.5rem; line-height: 1; }
+.depoimento blockquote p { font-size: 1.15rem; line-height: 1.6; margin: 0; }
+.depoimento__traducao { color: var(--al-cinza); font-size: .95rem; font-style: italic; margin: 0; padding-top: 1rem; border-top: 1px solid var(--al-linha); }
+.depoimento__autor { display: flex; align-items: center; gap: .9rem; margin-top: auto; }
+.depoimento__autor img, .depoimento__inicial { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.depoimento__inicial { display: grid; place-items: center; background: rgba(227,20,27,.12); color: var(--al-vermelho); font-family: var(--al-display); font-weight: 800; font-size: 1.6rem; }
+
 /* ---------- Vídeos ---------- */
 .video-capa { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 0; padding: 0; border-radius: var(--bs-border-radius-lg); background: #000; }
 .video-capa img { width: 100%; height: 100%; object-fit: cover; opacity: .75; transition: opacity .4s, transform .7s var(--al-ease); }

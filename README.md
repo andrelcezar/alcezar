@@ -53,6 +53,8 @@ Quase tudo fica em `assets/js/data.js`. Abra, edite o texto entre aspas e salve.
 
 **Carreira (linha do tempo):** bloco `trajetoria`, em ordem. `quando` aceita ano ou texto curto ("3 anos", "Hoje").
 
+**Depoimentos:** bloco `depoimentos`. A seção (entre o Blog e o "Vamos tocar?") só aparece quando pelo menos um item tem `texto` preenchido. Campos: `nome`, `papel` (banda ou projeto), `local`, `texto` (o depoimento como a pessoa escreveu), `traducao` (opcional, aparece abaixo em itálico) e `foto` (opcional, imagem quadrada; sem foto, aparece a inicial do nome). Com um depoimento, o card fica largo; com dois ou mais, em duas colunas.
+
 **Fotos:** coloque a imagem em `assets/images/galeria/` (de preferência uma versão grande de até 1600 px e uma miniatura de ~560 px, em `.webp` ou `.jpg`) e adicione um item no bloco `galeria`:
 
 ```js

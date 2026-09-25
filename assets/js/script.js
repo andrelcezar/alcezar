@@ -107,6 +107,27 @@
       </div>`).join("");
   }
 
+  /* ---------- Depoimentos (a seção fica oculta enquanto não houver texto) ---------- */
+  const depoEl = $("[data-depoimentos]");
+  const depos = (D.depoimentos || []).filter((d) => d.texto && d.texto.trim());
+  if (depoEl && depos.length) {
+    depoEl.innerHTML = depos.map((d) => `
+      <div class="col">
+        <figure class="depoimento revelar">
+          <span class="depoimento__aspas" aria-hidden="true">${icone("quote")}</span>
+          <blockquote class="mb-0"><p>${esc(d.texto)}</p></blockquote>
+          ${d.traducao ? `<p class="depoimento__traducao"><span class="visually-hidden">Tradução: </span>${esc(d.traducao)}</p>` : ""}
+          <figcaption class="depoimento__autor">
+            ${d.foto ? `<img src="${esc(caminho(d.foto))}" alt="" width="56" height="56" loading="lazy" decoding="async">` : `<span class="depoimento__inicial" aria-hidden="true">${esc(d.nome.trim().charAt(0))}</span>`}
+            <span><strong class="d-block">${esc(d.nome)}</strong><span class="text-secondary small">${esc([d.papel, d.local].filter(Boolean).join(" · "))}</span></span>
+          </figcaption>
+        </figure>
+      </div>`).join("");
+    // com um só depoimento, o card fica mais largo; com dois ou mais, em duas colunas
+    depoEl.classList.add(depos.length > 1 ? "row-cols-lg-2" : "depoimentos--unico");
+    depoEl.closest("section").hidden = false;
+  }
+
   /* ---------- Galeria, filtros e lightbox (modal + carrossel) ---------- */
   const fotos = D.galeria || [];
   const galeriaEl = $("[data-galeria]");
