@@ -35,11 +35,12 @@ window.SITE_DATA = {
   ],
 
   /* Lançamentos (discografia). tipo: Álbum | Single | EP | Demo.
-     link: onde ouvir/assistir (deixe "" se não houver). video: índice do vídeo em "videos" para abrir no modal (opcional). */
+     link: onde ouvir/assistir (deixe "" se não houver). video: índice do vídeo em "videos" para abrir no modal (opcional).
+     capa: imagem quadrada da capa (opcional). Sem ela, aparece a capa ilustrada com a cor "cor". */
   lancamentos: [
     { titulo: "Lycans", artista: "High Moonlight", tipo: "Álbum", ano: "2025",
       detalhe: "Álbum de estreia da banda, com 10 faixas. Produzido por Tiago de la Vega no Shokran Studios (Caxias do Sul/RS). Baixo: André Luiz.",
-      link: "https://onerpm.link/235132452580", acao: "Ouvir o álbum", icone: "vinyl-fill", cor: "#6b0d10",
+      link: "https://onerpm.link/235132452580", acao: "Ouvir o álbum", icone: "vinyl-fill", cor: "#6b0d10", capa: "assets/images/capa-lycans.webp",
       en: { tipo: "Album", detalhe: "The band's debut album, with 10 tracks. Produced by Tiago de la Vega at Shokran Studios (Caxias do Sul, Brazil). Bass: André Luiz.", acao: "Listen to the album" } },
     { titulo: "Heavy Play", artista: "High Moonlight", tipo: "Single e videoclipe", ano: "2025",
       detalhe: "Primeiro single de “Lycans”, com clipe em 4K gravado no Cardeal Pub, em São Paulo.",
@@ -159,7 +160,7 @@ window.SITE_DATA = {
     { tipo: "youtube", id: "QfadM3NaDBE", destaque: true,
       titulo: "High Moonlight — Heavy Play (Official 4K Video)",
       descricao: "Primeiro single do álbum “Lycans” (2025), com estreia no Roadie Crew Online Fest. Direção de Ricky Franco e Suellen Figueira, com a atriz Aline Carvalho, gravado no Cardeal Pub, em São Paulo. No baixo: André Luiz.",
-      thumb: "https://i.ytimg.com/vi/QfadM3NaDBE/hqdefault.jpg",
+      thumb: "assets/images/thumb-heavy-play.webp",
       thumbReserva: "assets/images/galeria/rosto.webp",
       en: { descricao: "First single from the album “Lycans” (2025), premiered at Roadie Crew Online Fest. Directed by Ricky Franco and Suellen Figueira, featuring actress Aline Carvalho, shot at Cardeal Pub in São Paulo. On bass: André Luiz." } }
     ,{ tipo: "youtube", id: "znph7phOcDk", destaque: false,

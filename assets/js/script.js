@@ -81,10 +81,12 @@
       return `
       <div class="col">
         <article class="lancamento revelar">
-          <div class="capa" style="--cor:${esc(l.cor || "#333")}" aria-hidden="true">
+          ${l.capa
+            ? `<div class="capa capa--foto"><img src="${esc(caminho(l.capa))}" alt="${esc(t("Capa do álbum {titulo}", { titulo: l.titulo }))}" width="900" height="900" loading="lazy" decoding="async"></div>`
+            : `<div class="capa" style="--cor:${esc(l.cor || "#333")}" aria-hidden="true">
             <div class="capa__disco"></div>
             <div class="capa__frente">${icone(l.icone || "vinyl-fill")}<div><strong>${esc(l.titulo)}</strong><small class="d-block mt-2">${esc(l.artista)}</small></div></div>
-          </div>
+          </div>`}
           <div class="lancamento__corpo">
             <div class="lancamento__meta"><span class="badge-al">${esc(l.tipo)}</span><span class="badge-ano">${esc(l.ano)}</span></div>
             <h3>${esc(l.titulo)}</h3>
