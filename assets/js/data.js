@@ -117,6 +117,17 @@ window.SITE_DATA = {
   /* categoria: usada nos filtros da galeria.
      tamanho: "normal" | "alta" | "larga" (define o bloco no grid) */
   galeria: [
+    /* Show da High Moonlight no evento Grutons Rock 2025 */
+    { src: "assets/images/galeria/hml-andre-baixo.webp", thumb: "assets/images/galeria/hml-andre-baixo-thumb.webp", titulo: "Grave em primeiro plano", legenda: "Com a High Moonlight no Grutons Rock", categoria: "palco", tamanho: "alta",
+      en: { titulo: "Low end up front", legenda: "With High Moonlight at Grutons Rock" } },
+    { src: "assets/images/galeria/hml-banda-palco.webp", thumb: "assets/images/galeria/hml-banda-palco-thumb.webp", titulo: "High Moonlight ao vivo", legenda: "A banda completa em ação no Grutons Rock", categoria: "palco", tamanho: "larga",
+      en: { titulo: "High Moonlight live", legenda: "The full band in action at Grutons Rock" } },
+    { src: "assets/images/galeria/hml-ao-vivo.webp", thumb: "assets/images/galeria/hml-ao-vivo-thumb.webp", titulo: "Energia de palco", legenda: "Show da High Moonlight no Grutons Rock", categoria: "palco", tamanho: "alta",
+      en: { titulo: "Stage energy", legenda: "High Moonlight live at Grutons Rock" } },
+    { src: "assets/images/galeria/hml-palco-completo.webp", thumb: "assets/images/galeria/hml-palco-completo-thumb.webp", titulo: "Palco HML", legenda: "A banda sob o logo da HML no Grutons Rock", categoria: "palco", tamanho: "alta",
+      en: { titulo: "HML stage", legenda: "The band under the HML logo at Grutons Rock" } },
+    { src: "assets/images/galeria/hml-teatro.webp", thumb: "assets/images/galeria/hml-teatro-thumb.webp", titulo: "Do fundo da plateia", legenda: "O palco do Grutons Rock visto da plateia", categoria: "palco", tamanho: "larga",
+      en: { titulo: "From the back of the room", legenda: "The Grutons Rock stage from the audience" } },
     { src: "assets/images/galeria/rosto.webp", thumb: "assets/images/galeria/rosto-thumb.webp", titulo: "Concentração", legenda: "Sob as luzes do palco", categoria: "palco", tamanho: "alta",
       en: { titulo: "Focus", legenda: "Under the stage lights" } },
     { src: "assets/images/galeria/banner.webp", thumb: "assets/images/galeria/banner-thumb.webp", titulo: "Identidade AL", legenda: "Banner oficial do canal", categoria: "arte", tamanho: "larga",
@@ -142,6 +153,12 @@ window.SITE_DATA = {
       thumb: "https://i.ytimg.com/vi/09d6qC0DHO8/hqdefault.jpg",
       thumbReserva: "assets/images/galeria/rosto.webp",
       en: { descricao: "First single from the album “Lycans” (2025), premiered at Roadie Crew Online Fest. Directed by Ricky Franco and Suellen Figueira, featuring actress Aline Carvalho, shot at Cardeal Pub in São Paulo. On bass: André Luiz." } }
+    ,{ tipo: "youtube", id: "znph7phOcDk", destaque: false,
+      titulo: "High Moonlight — Hercobolus / Chronovisor (ao vivo)",
+      descricao: "Ao vivo no Grutons Rock 2025, com a High Moonlight. No baixo: André Luiz.",
+      thumb: "https://i.ytimg.com/vi/znph7phOcDk/hqdefault.jpg",
+      thumbReserva: "assets/images/galeria/hml-banda-palco-thumb.webp",
+      en: { titulo: "High Moonlight — Hercobolus / Chronovisor (live)", descricao: "Live at Grutons Rock 2025 with High Moonlight. On bass: André Luiz." } }
     /* Para adicionar outro vídeo, copie o bloco acima, troque o id
        e deixe destaque: false. Exemplo MP4:
     ,{ tipo: "mp4", id: "assets/videos/ao-vivo.mp4", destaque: false,
