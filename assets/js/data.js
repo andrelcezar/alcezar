@@ -74,7 +74,7 @@ window.SITE_DATA = {
       texto: "Presença de palco em frente à câmera, com a experiência do clipe de “Heavy Play”, gravado com a High Moonlight.",
       link: "#videos", acao: "Ver o clipe" },
     { icone: "music-note-beamed", titulo: "Criação de linhas de baixo",
-      texto: "Do riff de thrash ao arranjo sinfônico: construo a linha que serve à música, não ao ego.",
+      texto: "Do riff de thrash ao arranjo sinfônico: construo a linha que serve à música, não ao ego. Hoje gravo as linhas de baixo do Armistice Front, projeto de Joe Howard (Cleveland/Detroit, EUA).",
       link: "#contato", acao: "Conversar" }
   ],
 
