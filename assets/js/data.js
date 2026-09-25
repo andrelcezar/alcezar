@@ -160,7 +160,7 @@ window.SITE_DATA = {
     { tipo: "youtube", id: "QfadM3NaDBE", destaque: true,
       titulo: "High Moonlight — Heavy Play (Official 4K Video)",
       descricao: "Primeiro single do álbum “Lycans” (2025), com estreia no Roadie Crew Online Fest. Direção de Ricky Franco e Suellen Figueira, com a atriz Aline Carvalho, gravado no Cardeal Pub, em São Paulo. No baixo: André Luiz.",
-      thumb: "https://i.ytimg.com/vi/QfadM3NaDBE/hqdefault.jpg",
+      thumb: "assets/images/thumb-heavy-play.webp",
       thumbReserva: "assets/images/galeria/rosto.webp",
       en: { descricao: "First single from the album “Lycans” (2025), premiered at Roadie Crew Online Fest. Directed by Ricky Franco and Suellen Figueira, featuring actress Aline Carvalho, shot at Cardeal Pub in São Paulo. On bass: André Luiz." } }
     ,{ tipo: "youtube", id: "znph7phOcDk", destaque: false,
