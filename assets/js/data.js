@@ -78,8 +78,8 @@ window.SITE_DATA = {
       link: "#contato", acao: "Conversar" }
   ],
 
-  /* Depoimentos. A seção só aparece no site quando pelo menos um item
-     tiver "texto" preenchido. Cole o texto exatamente como a pessoa escreveu.
+  /* Depoimentos. Enquanto "texto" estiver vazio, o card aparece como
+     "Depoimento em breve". Cole o texto exatamente como a pessoa escreveu.
      traducao: opcional, aparece abaixo do original (ex.: depoimento em inglês).
      foto: opcional, caminho de uma imagem quadrada (ex.: assets/images/joe.webp). */
   depoimentos: [

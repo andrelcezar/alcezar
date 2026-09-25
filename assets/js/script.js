@@ -107,22 +107,30 @@
       </div>`).join("");
   }
 
-  /* ---------- Depoimentos (a seção fica oculta enquanto não houver texto) ---------- */
+  /* ---------- Depoimentos (item sem texto aparece como "em breve") ---------- */
   const depoEl = $("[data-depoimentos]");
-  const depos = (D.depoimentos || []).filter((d) => d.texto && d.texto.trim());
+  const depos = (D.depoimentos || []).filter((d) => d.nome);
   if (depoEl && depos.length) {
-    depoEl.innerHTML = depos.map((d) => `
-      <div class="col">
-        <figure class="depoimento revelar">
-          <span class="depoimento__aspas" aria-hidden="true">${icone("quote")}</span>
-          <blockquote class="mb-0"><p>${esc(d.texto)}</p></blockquote>
-          ${d.traducao ? `<p class="depoimento__traducao"><span class="visually-hidden">Tradução: </span>${esc(d.traducao)}</p>` : ""}
+    const autor = (d) => `
           <figcaption class="depoimento__autor">
             ${d.foto ? `<img src="${esc(caminho(d.foto))}" alt="" width="56" height="56" loading="lazy" decoding="async">` : `<span class="depoimento__inicial" aria-hidden="true">${esc(d.nome.trim().charAt(0))}</span>`}
             <span><strong class="d-block">${esc(d.nome)}</strong><span class="text-secondary small">${esc([d.papel, d.local].filter(Boolean).join(" · "))}</span></span>
-          </figcaption>
+          </figcaption>`;
+    depoEl.innerHTML = depos.map((d) => {
+      const texto = (d.texto || "").trim();
+      const corpo = texto
+        ? `<blockquote class="mb-0"><p>${esc(texto)}</p></blockquote>
+          ${d.traducao ? `<p class="depoimento__traducao"><span class="visually-hidden">Tradução: </span>${esc(d.traducao)}</p>` : ""}`
+        : `<p class="depoimento__breve">Depoimento em breve.</p>`;
+      return `
+      <div class="col">
+        <figure class="depoimento${texto ? "" : " depoimento--breve"} revelar">
+          <span class="depoimento__aspas" aria-hidden="true">${icone("quote")}</span>
+          ${corpo}
+          ${autor(d)}
         </figure>
-      </div>`).join("");
+      </div>`;
+    }).join("");
     // com um só depoimento, o card fica mais largo; com dois ou mais, em duas colunas
     depoEl.classList.add(depos.length > 1 ? "row-cols-lg-2" : "depoimentos--unico");
     depoEl.closest("section").hidden = false;
