@@ -43,7 +43,7 @@ window.SITE_DATA = {
       en: { tipo: "Album", detalhe: "The band's debut album, with 10 tracks. Produced by Tiago de la Vega at Shokran Studios (Caxias do Sul, Brazil). Bass: André Luiz.", acao: "Listen to the album" } },
     { titulo: "Heavy Play", artista: "High Moonlight", tipo: "Single e videoclipe", ano: "2025",
       detalhe: "Primeiro single de “Lycans”, com clipe em 4K gravado no Cardeal Pub, em São Paulo.",
-      link: "https://youtu.be/09d6qC0DHO8", acao: "Assistir ao clipe", video: 0, icone: "camera-reels-fill", cor: "#0d4a44",
+      link: "https://youtu.be/QfadM3NaDBE", acao: "Assistir ao clipe", video: 0, icone: "camera-reels-fill", cor: "#0d4a44",
       en: { tipo: "Single and music video", detalhe: "First single from “Lycans”, with a 4K music video shot at Cardeal Pub in São Paulo.", acao: "Watch the video" } },
     { titulo: "The Lost Horizon", artista: "Opus Eclipse", tipo: "Demo", ano: "2009",
       detalhe: "Primeira demo autoral da banda, depois do festival Pimp My Band, onde tocamos “Convict” e “The Lost Horizon”.",
@@ -147,10 +147,10 @@ window.SITE_DATA = {
   /* tipo: "youtube" | "vimeo" | "mp4"
      id: ID do YouTube/Vimeo, ou caminho do arquivo .mp4 em assets/videos/ */
   videos: [
-    { tipo: "youtube", id: "09d6qC0DHO8", destaque: true,
+    { tipo: "youtube", id: "QfadM3NaDBE", destaque: true,
       titulo: "High Moonlight — Heavy Play (Official 4K Video)",
       descricao: "Primeiro single do álbum “Lycans” (2025), com estreia no Roadie Crew Online Fest. Direção de Ricky Franco e Suellen Figueira, com a atriz Aline Carvalho, gravado no Cardeal Pub, em São Paulo. No baixo: André Luiz.",
-      thumb: "https://i.ytimg.com/vi/09d6qC0DHO8/hqdefault.jpg",
+      thumb: "https://i.ytimg.com/vi/QfadM3NaDBE/hqdefault.jpg",
       thumbReserva: "assets/images/galeria/rosto.webp",
       en: { descricao: "First single from the album “Lycans” (2025), premiered at Roadie Crew Online Fest. Directed by Ricky Franco and Suellen Figueira, featuring actress Aline Carvalho, shot at Cardeal Pub in São Paulo. On bass: André Luiz." } }
     ,{ tipo: "youtube", id: "znph7phOcDk", destaque: false,
