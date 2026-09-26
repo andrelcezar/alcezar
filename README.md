@@ -73,6 +73,8 @@ Quase tudo fica em `assets/js/data.js`. Abra, edite o texto entre aspas e salve.
 
 O vídeo com `destaque: true` aparece grande; os outros viram cards abaixo. Nada toca sozinho: o vídeo só carrega quando o visitante clica.
 
+**Vídeos novos do canal (automático):** os vídeos mais recentes do canal do YouTube aparecem sozinhos em "Mais recentes do canal", logo abaixo dos vídeos escolhidos à mão. Todo dia, às 6h17 (Brasília), o GitHub Actions (`.github/workflows/sync-youtube.yml`) roda `scripts/sync-youtube.mjs`. Esse script lê o feed público do canal, sem chave de API, e atualiza `assets/js/videos-canal.js`. Se houver vídeo novo, ele faz o commit e o site publica. Para rodar na hora, abra a aba **Actions** do GitHub, entre em **Sincronizar vídeos do YouTube** e clique em **Run workflow**. Localmente: `node scripts/sync-youtube.mjs`. No bloco `canal` do `data.js`, `limite` define quantos vídeos aparecem e `ocultar` lista os ids que não devem aparecer. Vídeos que já estão no bloco `videos` não se repetem.
+
 **Posts do blog:** bloco `posts`. Cada post tem `slug` (vira o endereço `pages/blog.html?post=slug`), `titulo`, `categoria`, `data` (formato `AAAA-MM-DD`), `capa`, `resumo` e `conteudo` (lista de parágrafos). O post com `destaque: true` aparece em tamanho grande. A página inicial mostra os 3 mais recentes.
 
 > Os 3 posts atuais são **demonstrativos**, escritos a partir da sua trajetória. Revise antes de publicar.

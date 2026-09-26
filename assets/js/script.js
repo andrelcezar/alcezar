@@ -254,6 +254,24 @@
       if (!outros.length) listaEl.remove();
     }
   }
+  // Mais recentes do canal (lista gerada por scripts/sync-youtube.mjs)
+  const canalEl = $("[data-videos-canal]");
+  const canalLista = canalEl && $("[data-videos-canal-lista]", canalEl);
+  const doCanal = (window.VIDEOS_CANAL && window.VIDEOS_CANAL.videos) || [];
+  if (canalLista && doCanal.length) {
+    const cfg = D.canal || {};
+    const ja = new Set(videos.map((v) => v.id).concat(cfg.ocultar || []));
+    const novos = doCanal.filter((v) => !ja.has(v.id)).slice(0, cfg.limite || 6);
+    if (novos.length) {
+      const dataCurta = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString(EN ? "en-US" : "pt-BR", { month: "short", year: "numeric" });
+      canalLista.innerHTML = novos.map((x) => {
+        const i = videos.push({ tipo: "youtube", id: x.id, titulo: x.titulo, descricao: x.descricao, thumb: `https://i.ytimg.com/vi/${x.id}/hqdefault.jpg`, thumbReserva: "assets/images/galeria/rosto-thumb.webp" }) - 1;
+        return `
+        <div class="col"><article class="revelar">${capa(videos[i], i, false)}<h4 class="mt-3" style="font-size:1.35rem">${esc(x.titulo)}</h4><p class="text-secondary small mb-0">${esc(dataCurta(x.publicado))}</p></article></div>`;
+      }).join("");
+      canalEl.hidden = false;
+    }
+  }
   document.addEventListener("error", (e) => {
     const t = e.target;
     if (t.tagName === "IMG" && t.dataset.reserva && t.src !== t.dataset.reserva) t.src = t.dataset.reserva;

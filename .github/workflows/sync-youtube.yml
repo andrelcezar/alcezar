@@ -1,0 +1,39 @@
+name: Sincronizar vídeos do YouTube
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # todo dia, 06:17 no horário de Brasília
+  workflow_dispatch: # botão "Run workflow" na aba Actions, para rodar na hora
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-youtube
+  cancel-in-progress: false
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Ler o canal e atualizar a lista de vídeos
+        run: node scripts/sync-youtube.mjs
+
+      - name: Publicar se houver vídeo novo
+        run: |
+          if git diff --quiet; then
+            echo "Nenhum vídeo novo."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/js/videos-canal.js index.html
+          git commit -m "Vídeos: sincroniza com o canal do YouTube"
+          git push
