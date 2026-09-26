@@ -173,23 +173,34 @@ window.SITE_DATA = {
       thumb: "https://i.ytimg.com/vi/znph7phOcDk/hqdefault.jpg",
       thumbReserva: "assets/images/galeria/hml-banda-palco-thumb.webp",
       en: { titulo: "High Moonlight — Hercobolus / Chronovisor (live)", descricao: "Live at Grutons Rock 2025 with High Moonlight. On bass: André Luiz." } }
-    ,{ tipo: "youtube", id: "3Uy7rXxGGDI", destaque: false,
+    ,{ tipo: "youtube", id: "_qWdjhcbGF4", destaque: false,
       titulo: "Opus Eclipse — ao vivo no Pimp My Band",
-      descricao: "Da época da Opus Eclipse: a banda ao vivo no festival de bandas Pimp My Band, em São Paulo, onde chegou à final com músicas próprias. No baixo: André Luiz.",
+      descricao: "Da época da Opus Eclipse: a banda ao vivo no festival de bandas Pimp My Band, em São Paulo, em 3 de outubro de 2008, rumo à final com músicas próprias. No baixo: André Luiz.",
       thumb: "assets/images/thumb-opus-eclipse-pimp-my-band.webp",
       thumbReserva: "assets/images/opus-eclipse-logo.webp",
-      en: { titulo: "Opus Eclipse — live at Pimp My Band", descricao: "From the Opus Eclipse days: the band live at the Pimp My Band festival in São Paulo, where it reached the final with original songs. On bass: André Luiz." } }
-    ,{ tipo: "youtube", id: "kgRvAqWHkqs", inicio: 173, destaque: false,
+      en: { titulo: "Opus Eclipse — live at Pimp My Band", descricao: "From the Opus Eclipse days: the band live at the Pimp My Band festival in São Paulo, on October 3, 2008, on the way to the final with original songs. On bass: André Luiz." } }
+    ,{ tipo: "youtube", id: "GvPUsA2dNQk", destaque: false,
       titulo: "Noctra — The Obsessive Devotion (tributo ao Epica)",
-      descricao: "Com a Noctra, tributo a Epica e After Forever, em um festival de bandas no antigo Manifesto Rock Bar, em São Paulo, em 10/01/2010. No baixo: André Luiz.",
+      descricao: "Com a Noctra, tributo a Epica e After Forever, na final do concurso de bandas do antigo Manifesto Rock Bar, em São Paulo, em 10/01/2010. No baixo: André Luiz.",
       thumb: "assets/images/thumb-noctra-obsessive-devotion.webp",
       thumbReserva: "assets/images/galeria/maos-thumb.webp",
-      en: { titulo: "Noctra — The Obsessive Devotion (Epica tribute)", descricao: "With Noctra, a tribute to Epica and After Forever, at a band festival at the old Manifesto Rock Bar in São Paulo, on January 10, 2010. On bass: André Luiz." } }
+      en: { titulo: "Noctra — The Obsessive Devotion (Epica tribute)", descricao: "With Noctra, a tribute to Epica and After Forever, at the final of the band contest at the old Manifesto Rock Bar in São Paulo, on January 10, 2010. On bass: André Luiz." } }
     /* Para adicionar outro vídeo, copie o bloco acima, troque o id
        e deixe destaque: false. Exemplo MP4:
     ,{ tipo: "mp4", id: "assets/videos/ao-vivo.mp4", destaque: false,
        titulo: "Ao vivo", descricao: "...", thumb: "assets/images/galeria/palco.webp" } */
   ],
+
+  /* Canal do YouTube: os vídeos mais recentes entram sozinhos na seção Vídeos,
+     em "Mais recentes do canal". A lista vem de assets/js/videos-canal.js, que o
+     GitHub Actions atualiza todo dia (.github/workflows/sync-youtube.yml).
+     - limite: quantos vídeos mostrar
+     - ocultar: ids de vídeos que não devem aparecer (ex.: ["lZBl0hv5wUs"])
+     Vídeos que já estão na lista "videos" acima não se repetem. */
+  canal: {
+    limite: 6,
+    ocultar: []
+  },
 
   /* Posts demonstrativos: a estrutura está pronta para virar
      um blog dinâmico (basta carregar este array de uma API/JSON). */
