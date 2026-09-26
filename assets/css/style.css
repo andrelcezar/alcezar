@@ -175,9 +175,9 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
   .timeline::before { left: 50%; margin-left: -1px; }
   .timeline li { width: 50%; padding-left: 0; padding-right: 3rem; text-align: right; }
   .timeline li::before { left: auto; right: -8px; }
-  .timeline li:nth-child(even) { margin-left: 50%; padding-left: 3rem; padding-right: 0; text-align: left; }
-  .timeline li:nth-child(even)::before { right: auto; left: -8px; }
-  .timeline li:nth-child(odd) p { margin-left: auto; }
+  .timeline li.lado-b { margin-left: 50%; padding-left: 3rem; padding-right: 0; text-align: left; }
+  .timeline li.lado-b::before { right: auto; left: -8px; }
+  .timeline li:not(.lado-b) p { margin-left: auto; }
 }
 
 /* ---------- Discografia ---------- */
@@ -203,8 +203,9 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 .lancamento .btn { align-self: flex-start; }
 
 /* ---------- Estilos (faixa) ---------- */
-.generos { padding-block: clamp(3.5rem, 8vw, 6rem); overflow: hidden; border-block: 1px solid var(--al-linha); }
-.generos__linha { display: flex; gap: .3em; white-space: nowrap; font-family: var(--al-display); font-weight: 900; font-size: clamp(4.5rem, 13vw, 11rem); line-height: .9; text-transform: uppercase; will-change: transform; }
+.generos { padding-block: clamp(1.75rem, 4vw, 2.75rem); overflow: hidden; border-block: 1px solid var(--al-linha); }
+.generos__linha { display: flex; gap: .3em; white-space: nowrap; font-family: var(--al-display); font-weight: 900; font-size: clamp(2.75rem, 7vw, 5.5rem); line-height: .9; text-transform: uppercase; will-change: transform; }
+.generos__frase { font-family: var(--al-display); font-weight: 800; font-size: clamp(1.25rem, 2.4vw, 1.75rem); line-height: 1.1; color: var(--al-cinza); }
 .generos__linha .vazado { color: transparent; -webkit-text-stroke: 2px var(--al-vermelho); }
 .generos__linha .verm { color: var(--al-vermelho); }
 
@@ -297,6 +298,11 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 .artigo__texto { display: flex; flex-direction: column; gap: 1.25rem; font-size: 1.15rem; line-height: 1.75; color: #d6d0c7; }
 
 /* ---------- CTA ---------- */
+/* ---------- Chamada no meio da página ---------- */
+.faixa-contratar { padding-block: clamp(2.5rem, 5vw, 4rem); }
+.faixa-contratar__caixa { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2rem; padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem); border: 1px solid var(--al-linha); border-left: 4px solid var(--al-vermelho); border-radius: var(--bs-border-radius-lg); background: linear-gradient(90deg, rgba(227,20,27,.16), var(--al-grafite-2) 60%); }
+.faixa-contratar__titulo { font-size: clamp(2rem, 4vw, 2.8rem); margin: 0 0 .35rem; }
+
 .cta { position: relative; overflow: hidden; background: var(--al-vermelho); color: #fff; }
 .cta::before { content: ""; position: absolute; right: -4%; top: -25%; width: 52%; height: 150%; background: url("../images/logo-al.webp") center / contain no-repeat; opacity: .14; mix-blend-mode: multiply; transform: rotate(-8deg); pointer-events: none; }
 .cta h2 { font-size: clamp(3.25rem, 9vw, 7rem); }

@@ -63,12 +63,30 @@
   /* ---------- Linha do tempo ---------- */
   const tl = $("[data-trajetoria]");
   if (tl) {
-    tl.innerHTML = (D.trajetoria || []).map(tr).map((x) => `
-      <li class="revelar">
+    // Itens com "secundario: true" ficam recolhidos até o visitante pedir a trajetória completa
+    const itens = (D.trajetoria || []).map(tr);
+    tl.innerHTML = itens.map((x) => `
+      <li class="revelar"${x.secundario ? " data-secundario hidden" : ""}>
         <span class="timeline__quando">${esc(x.quando)}</span>
         <h3>${esc(x.titulo)}</h3>
         <p>${esc(x.texto)}</p>
       </li>`).join("");
+    // alterna os lados só entre os itens visíveis
+    const alternar = () => $$("li:not([hidden])", tl).forEach((li, i) => li.classList.toggle("lado-b", i % 2 === 1));
+    alternar();
+    const caixaBotao = $("[data-trajetoria-botao]");
+    const botao = caixaBotao && $("button", caixaBotao);
+    if (botao && itens.some((x) => x.secundario)) {
+      caixaBotao.hidden = false;
+      botao.addEventListener("click", () => {
+        const abrir = botao.getAttribute("aria-expanded") !== "true";
+        $$("[data-secundario]", tl).forEach((li) => { li.hidden = !abrir; });
+        botao.setAttribute("aria-expanded", String(abrir));
+        botao.innerHTML = `${icone(abrir ? "dash-lg" : "plus-lg")}<span>${t(abrir ? "Mostrar só os marcos principais" : "Ver trajetória completa")}</span>`;
+        alternar();
+        if (!abrir) $("#carreira").scrollIntoView({ behavior: reduzMovimento ? "auto" : "smooth" });
+      });
+    }
   }
 
   /* ---------- Discografia ---------- */
@@ -146,7 +164,13 @@
   const fotos = (D.galeria || []).map(tr);
   const galeriaEl = $("[data-galeria]");
   if (galeriaEl) {
-    galeriaEl.innerHTML = fotos.map((f, i) => `
+    // Na página inicial ("data-destaques") entram só as fotos marcadas com "home: true"
+    let lista = fotos.map((f, i) => [f, i]);
+    if (galeriaEl.hasAttribute("data-destaques")) {
+      const home = lista.filter(([f]) => f.home);
+      lista = home.length ? home : lista.slice(0, 7);
+    }
+    galeriaEl.innerHTML = lista.map(([f, i]) => `
       <button type="button" class="foto foto--${esc(f.tamanho || "normal")} revelar" data-indice="${i}" data-categoria="${esc(f.categoria)}" aria-label="${esc(t("Ampliar foto: {titulo}", { titulo: f.titulo }))}">
         <img src="${esc(caminho(f.thumb || f.src))}" alt="${esc(f.titulo)} — ${esc(f.legenda)}" loading="lazy" decoding="async">
         <span class="foto__info"><strong>${esc(f.titulo)}</strong><span>${esc(f.legenda)}</span></span>
