@@ -36,7 +36,8 @@ window.SITE_DATA = {
 
   /* Lançamentos (discografia). tipo: Álbum | Single | EP | Demo.
      link: onde ouvir/assistir (deixe "" se não houver). video: índice do vídeo em "videos" para abrir no modal (opcional).
-     capa: imagem quadrada da capa (opcional). Sem ela, aparece a capa ilustrada com a cor "cor". */
+     capa: imagem quadrada da capa (opcional). Sem ela, aparece a capa ilustrada com a cor "cor".
+     capaAlt: descrição da imagem, se não for a capa do disco (ex.: logo da banda). */
   lancamentos: [
     { titulo: "Lycans", artista: "High Moonlight", tipo: "Álbum", ano: "2025",
       detalhe: "Álbum de estreia da banda, com 10 faixas. Produzido por Tiago de la Vega no Shokran Studios (Caxias do Sul/RS). Baixo: André Luiz.",
@@ -48,8 +49,8 @@ window.SITE_DATA = {
       en: { tipo: "Single and music video", detalhe: "First single from “Lycans”, with a 4K music video shot at Cardeal Pub in São Paulo.", acao: "Watch the video" } },
     { titulo: "The Lost Horizon", artista: "Opus Eclipse", tipo: "Demo", ano: "2009",
       detalhe: "Primeira demo autoral da banda, depois do festival Pimp My Band, onde tocamos “Convict” e “The Lost Horizon”.",
-      link: "", acao: "", icone: "disc-fill", cor: "#2a2a2a",
-      en: { detalhe: "The band's first original demo, recorded after the Pimp My Band festival, where we played “Convict” and “The Lost Horizon”." } }
+      link: "", acao: "", icone: "disc-fill", cor: "#2a2a2a", capa: "assets/images/opus-eclipse-quadrado.webp", capaAlt: "Logo da Opus Eclipse",
+      en: { capaAlt: "Opus Eclipse logo", detalhe: "The band's first original demo, recorded after the Pimp My Band festival, where we played “Convict” and “The Lost Horizon”." } }
   ],
 
   /* Linha do tempo da carreira, em ordem. "quando" aceita ano ou texto curto. */
@@ -181,7 +182,8 @@ window.SITE_DATA = {
     { slug: "opus-eclipse-2007-2012", destaque: true,
       titulo: "Cover autorizado pelo Therion: minha história na Opus Eclipse",
       categoria: "Trajetória", data: "2026-09-20",
-      capa: "assets/images/galeria/maos.webp",
+      capa: "assets/images/opus-eclipse-logo.webp",
+      fonte: { texto: "Histórico da banda no blog da Remagine (antiga Opus Eclipse)", url: "http://re-magine1.blogspot.com/p/historia.html" },
       resumo: "Da primeira formação, em 2007, até 2012. Uma banda reconhecida pelo próprio Christofer Johnsson como cover brasileiro do Therion.",
       conteudo: [
         "A Opus Eclipse nasceu em fevereiro de 2007 como banda cover de gothic metal, formada por Bruno Buran e Daniel Iastremski. Logo vieram a soprano Karina Flores no vocal lírico, Tatiana Silva na bateria e eu no baixo. O nome vem de “Opus Eclipse”, faixa instrumental do álbum “Theli” (1996) do Therion.",
@@ -191,6 +193,7 @@ window.SITE_DATA = {
         "Fiquei na banda até 2012, quando ela passou a se chamar Remagine. Depois vieram três anos com a Noctra, tributo a Epica e After Forever, mantendo o pé no metal sinfônico antes de seguir para o autoral."
       ],
       en: {
+        fonte: { texto: "Band history on the Remagine blog (formerly Opus Eclipse)", url: "http://re-magine1.blogspot.com/p/historia.html" },
         titulo: "Authorized by Therion: my years with Opus Eclipse",
         categoria: "Career",
         resumo: "From the original lineup in 2007 until 2012. A band recognized by Christofer Johnsson himself as Therion's Brazilian tribute.",

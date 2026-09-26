@@ -82,7 +82,7 @@
       <div class="col">
         <article class="lancamento revelar">
           ${l.capa
-            ? `<div class="capa capa--foto"><img src="${esc(caminho(l.capa))}" alt="${esc(t("Capa do álbum {titulo}", { titulo: l.titulo }))}" width="900" height="900" loading="lazy" decoding="async"></div>`
+            ? `<div class="capa capa--foto"><img src="${esc(caminho(l.capa))}" alt="${esc(l.capaAlt || t("Capa do álbum {titulo}", { titulo: l.titulo }))}" width="900" height="900" loading="lazy" decoding="async"></div>`
             : `<div class="capa" style="--cor:${esc(l.cor || "#333")}" aria-hidden="true">
             <div class="capa__disco"></div>
             <div class="capa__frente">${icone(l.icone || "vinyl-fill")}<div><strong>${esc(l.titulo)}</strong><small class="d-block mt-2">${esc(l.artista)}</small></div></div>
@@ -291,6 +291,7 @@
           <h1>${esc(p.titulo)}</h1>
           <img class="artigo__capa" src="${esc(caminho(p.capa))}" alt="">
           <div class="artigo__texto">${(p.conteudo || [p.resumo]).map((t) => `<p class="mb-0">${esc(t)}</p>`).join("")}</div>
+          ${p.fonte ? `<p class="artigo__fonte">${t("Fonte:")} <a href="${esc(p.fonte.url)}" target="_blank" rel="noopener">${esc(p.fonte.texto)}</a></p>` : ""}
           <p class="mt-5"><a class="link-seta" href="${BASE}pages/blog.html">${t("Voltar para o blog")}${icone("arrow-right")}</a></p>
         </article>`;
     } else {

@@ -290,6 +290,7 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 }
 .artigo { max-width: 760px; margin-inline: auto; }
 .artigo h1 { font-size: clamp(2.75rem, 7vw, 4.75rem); margin-top: 1rem; }
+.artigo__fonte { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--al-linha); color: var(--al-cinza); font-size: .9rem; }
 .artigo__capa { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--bs-border-radius-lg); margin: 2rem 0; }
 .artigo__texto { display: flex; flex-direction: column; gap: 1.25rem; font-size: 1.15rem; line-height: 1.75; color: #d6d0c7; }
 
