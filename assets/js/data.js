@@ -53,7 +53,8 @@ window.SITE_DATA = {
       en: { capaAlt: "Opus Eclipse logo", acao: "Listen on Palco MP3", detalhe: "The band's first original demo, released independently (2009–2010), after the Pimp My Band festival, where we reached the final with “Convict” and “The Lost Horizon”." } }
   ],
 
-  /* Linha do tempo da carreira, em ordem. "quando" aceita ano ou texto curto. */
+  /* Linha do tempo da carreira, em ordem. "quando" aceita ano ou texto curto.
+     secundario: true -> fica recolhido na página inicial até clicar em "Ver trajetória completa" */
   trajetoria: [
     { quando: "2007", titulo: "Opus Eclipse — formação original",
       texto: "Entro no baixo da banda, formada em fevereiro como cover de gothic metal e que logo passa a tocar só Therion.",
@@ -61,10 +62,10 @@ window.SITE_DATA = {
     { quando: "27 set 2007", titulo: "Aval do Therion",
       texto: "A Opus Eclipse é reconhecida e autorizada por Christofer Johnsson, fundador do Therion, como cover brasileiro da banda.",
       en: { quando: "Sep 27, 2007", titulo: "Therion's seal of approval", texto: "Opus Eclipse is recognized and authorized by Christofer Johnsson, founder of Therion, as the band's official Brazilian tribute." } },
-    { quando: "2008–2009", titulo: "Nova formação e músicas próprias",
+    { quando: "2008–2009", secundario: true, titulo: "Nova formação e músicas próprias",
       texto: "Volto com a formação renovada. Com “Convict” e “The Lost Horizon”, chegamos à final do festival Pimp My Band, em São Paulo, e gravamos a demo “The Lost Horizon”.",
       en: { titulo: "New lineup and original songs", texto: "I return with the new lineup. With “Convict” and “The Lost Horizon” we reach the final of the Pimp My Band festival in São Paulo, and record the demo “The Lost Horizon”." } },
-    { quando: "2012", titulo: "Fim de um ciclo",
+    { quando: "2012", secundario: true, titulo: "Fim de um ciclo",
       texto: "Deixo a banda depois de cinco anos, quando ela passa a se chamar Remagine.",
       en: { titulo: "End of an era", texto: "I leave the band after five years, as it changes its name to Remagine." } },
     { quando: "3 anos", titulo: "Noctra",
@@ -117,25 +118,26 @@ window.SITE_DATA = {
   ],
 
   /* categoria: usada nos filtros da galeria.
-     tamanho: "normal" | "alta" | "larga" (define o bloco no grid) */
+     tamanho: "normal" | "alta" | "larga" (define o bloco no grid)
+     home: true -> aparece também na galeria da página inicial (hoje: 7 fotos, testadas para o grid fechar sem buracos) */
   galeria: [
     /* Show da High Moonlight no evento Grutons Rock 2025 */
-    { src: "assets/images/galeria/hml-andre-baixo.webp", thumb: "assets/images/galeria/hml-andre-baixo-thumb.webp", titulo: "Grave em primeiro plano", legenda: "Com a High Moonlight no Grutons Rock", categoria: "palco", tamanho: "alta",
+    { home: true, src: "assets/images/galeria/hml-andre-baixo.webp", thumb: "assets/images/galeria/hml-andre-baixo-thumb.webp", titulo: "Grave em primeiro plano", legenda: "Com a High Moonlight no Grutons Rock", categoria: "palco", tamanho: "alta",
       en: { titulo: "Low end up front", legenda: "With High Moonlight at Grutons Rock" } },
-    { src: "assets/images/galeria/hml-banda-palco.webp", thumb: "assets/images/galeria/hml-banda-palco-thumb.webp", titulo: "High Moonlight ao vivo", legenda: "A banda completa em ação no Grutons Rock", categoria: "palco", tamanho: "larga",
+    { home: true, src: "assets/images/galeria/hml-banda-palco.webp", thumb: "assets/images/galeria/hml-banda-palco-thumb.webp", titulo: "High Moonlight ao vivo", legenda: "A banda completa em ação no Grutons Rock", categoria: "palco", tamanho: "larga",
       en: { titulo: "High Moonlight live", legenda: "The full band in action at Grutons Rock" } },
-    { src: "assets/images/galeria/hml-ao-vivo.webp", thumb: "assets/images/galeria/hml-ao-vivo-thumb.webp", titulo: "Energia de palco", legenda: "Show da High Moonlight no Grutons Rock", categoria: "palco", tamanho: "alta",
+    { home: true, src: "assets/images/galeria/hml-ao-vivo.webp", thumb: "assets/images/galeria/hml-ao-vivo-thumb.webp", titulo: "Energia de palco", legenda: "Show da High Moonlight no Grutons Rock", categoria: "palco", tamanho: "alta",
       en: { titulo: "Stage energy", legenda: "High Moonlight live at Grutons Rock" } },
     { src: "assets/images/galeria/hml-palco-completo.webp", thumb: "assets/images/galeria/hml-palco-completo-thumb.webp", titulo: "Palco HML", legenda: "A banda sob o logo da HML no Grutons Rock", categoria: "palco", tamanho: "alta",
       en: { titulo: "HML stage", legenda: "The band under the HML logo at Grutons Rock" } },
     { src: "assets/images/galeria/hml-teatro.webp", thumb: "assets/images/galeria/hml-teatro-thumb.webp", titulo: "Do fundo da plateia", legenda: "O palco do Grutons Rock visto da plateia", categoria: "palco", tamanho: "larga",
       en: { titulo: "From the back of the room", legenda: "The Grutons Rock stage from the audience" } },
     /* Trapezia, banda de apoio da Thais (2022) */
-    { src: "assets/images/galeria/trapezia-andre-palco.webp", thumb: "assets/images/galeria/trapezia-andre-palco-thumb.webp", titulo: "Trapezia ao vivo", legenda: "No baixo da banda de apoio da Thais", categoria: "palco", tamanho: "alta",
+    { home: true, src: "assets/images/galeria/trapezia-andre-palco.webp", thumb: "assets/images/galeria/trapezia-andre-palco-thumb.webp", titulo: "Trapezia ao vivo", legenda: "No baixo da banda de apoio da Thais", categoria: "palco", tamanho: "alta",
       en: { titulo: "Trapezia live", legenda: "On bass in Thais's backing band" } },
     { src: "assets/images/galeria/trapezia-andre-pb.webp", thumb: "assets/images/galeria/trapezia-andre-pb-thumb.webp", titulo: "Em preto e branco", legenda: "Show do Trapezia", categoria: "palco", tamanho: "alta",
       en: { titulo: "In black and white", legenda: "Trapezia live show" } },
-    { src: "assets/images/galeria/trapezia-banda.webp", thumb: "assets/images/galeria/trapezia-banda-thumb.webp", titulo: "Trapezia", legenda: "Thais e banda no palco", categoria: "palco", tamanho: "larga",
+    { home: true, src: "assets/images/galeria/trapezia-banda.webp", thumb: "assets/images/galeria/trapezia-banda-thumb.webp", titulo: "Trapezia", legenda: "Thais e banda no palco", categoria: "palco", tamanho: "larga",
       en: { titulo: "Trapezia", legenda: "Thais and the band on stage" } },
     { src: "assets/images/galeria/trapezia-andre-baixo.webp", thumb: "assets/images/galeria/trapezia-andre-baixo-thumb.webp", titulo: "Groove", legenda: "Cinco cordas no show do Trapezia", categoria: "palco", tamanho: "alta",
       en: { titulo: "Groove", legenda: "Five strings at the Trapezia show" } },
@@ -145,9 +147,9 @@ window.SITE_DATA = {
       en: { titulo: "AL identity", legenda: "Official channel banner" } },
     { src: "assets/images/galeria/maos.webp", thumb: "assets/images/galeria/maos-thumb.webp", titulo: "Cinco cordas", legenda: "Braço do baixo em ação", categoria: "palco", tamanho: "alta",
       en: { titulo: "Five strings", legenda: "Bass neck in action" } },
-    { src: "assets/images/galeria/palco.webp", thumb: "assets/images/galeria/palco-thumb.webp", titulo: "André Luiz", legenda: "Retrato oficial", categoria: "retrato", tamanho: "normal",
+    { home: true, src: "assets/images/galeria/palco.webp", thumb: "assets/images/galeria/palco-thumb.webp", titulo: "André Luiz", legenda: "Retrato oficial", categoria: "retrato", tamanho: "normal",
       en: { legenda: "Official portrait" } },
-    { src: "assets/images/galeria/corpo.webp", thumb: "assets/images/galeria/corpo-thumb.webp", titulo: "Pegada", legenda: "Mão direita, grave firme", categoria: "palco", tamanho: "normal",
+    { home: true, src: "assets/images/galeria/corpo.webp", thumb: "assets/images/galeria/corpo-thumb.webp", titulo: "Pegada", legenda: "Mão direita, grave firme", categoria: "palco", tamanho: "normal",
       en: { titulo: "Attack", legenda: "Right hand, solid low end" } },
     { src: "assets/images/galeria/flyer.webp", thumb: "assets/images/galeria/flyer-thumb.webp", titulo: "Rock na veia", legenda: "Flyer de divulgação", categoria: "arte", tamanho: "normal",
       en: { titulo: "Rock in my veins", legenda: "Promotional flyer" } },
