@@ -265,7 +265,7 @@
     if (novos.length) {
       const dataCurta = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString(EN ? "en-US" : "pt-BR", { month: "short", year: "numeric" });
       canalLista.innerHTML = novos.map((x) => {
-        const i = videos.push({ tipo: "youtube", id: x.id, titulo: x.titulo, descricao: x.descricao, thumb: `https://i.ytimg.com/vi/${x.id}/hqdefault.jpg`, thumbReserva: "assets/images/galeria/rosto-thumb.webp" }) - 1;
+        const i = videos.push({ tipo: "youtube", id: x.id, titulo: x.titulo, descricao: x.descricao, thumb: `assets/images/capas/${x.id}.webp`, thumbReserva: `https://i.ytimg.com/vi/${x.id}/hqdefault.jpg` }) - 1;
         return `
         <div class="col"><article class="revelar">${capa(videos[i], i, false)}<h4 class="mt-3" style="font-size:1.35rem">${esc(x.titulo)}</h4><p class="text-secondary small mb-0">${esc(dataCurta(x.publicado))}</p></article></div>`;
       }).join("");

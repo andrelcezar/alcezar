@@ -170,8 +170,8 @@ window.SITE_DATA = {
     ,{ tipo: "youtube", id: "znph7phOcDk", destaque: false,
       titulo: "High Moonlight — Hercobolus / Chronovisor (ao vivo)",
       descricao: "Ao vivo no Grutons Rock 2025, com a High Moonlight. No baixo: André Luiz.",
-      thumb: "https://i.ytimg.com/vi/znph7phOcDk/hqdefault.jpg",
-      thumbReserva: "assets/images/galeria/hml-banda-palco-thumb.webp",
+      thumb: "assets/images/capas/znph7phOcDk.webp",
+      thumbReserva: "https://i.ytimg.com/vi/znph7phOcDk/hqdefault.jpg",
       en: { titulo: "High Moonlight — Hercobolus / Chronovisor (live)", descricao: "Live at Grutons Rock 2025 with High Moonlight. On bass: André Luiz." } }
     ,{ tipo: "youtube", id: "_qWdjhcbGF4", destaque: false,
       titulo: "Opus Eclipse — ao vivo no Pimp My Band",
@@ -196,10 +196,17 @@ window.SITE_DATA = {
      GitHub Actions atualiza todo dia (.github/workflows/sync-youtube.yml).
      - limite: quantos vídeos mostrar
      - ocultar: ids de vídeos que não devem aparecer (ex.: ["lZBl0hv5wUs"])
-     Vídeos que já estão na lista "videos" acima não se repetem. */
+     Vídeos que já estão na lista "videos" acima não se repetem.
+     - capas: a capa de cada vídeo é gerada sozinha (scripts/gerar-capas.py) a partir
+       do título no YouTube. Para ajustar os textos de uma capa, use o id do vídeo:
+       titulo (letras grandes), linha1 (branca), linha2 (vermelha), selo (canto),
+       ou capa: false para usar a miniatura do próprio YouTube. */
   canal: {
     limite: 6,
-    ocultar: []
+    ocultar: [],
+    capas: {
+      "MXHjqOleR0Q": { titulo: "Chronovisor", linha1: "High Moonlight · Baixo", linha2: "Você nunca ouviu um baixo assim", selo: "Baixo" }
+    }
   },
 
   /* Posts demonstrativos: a estrutura está pronta para virar
