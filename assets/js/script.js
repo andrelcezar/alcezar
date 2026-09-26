@@ -82,7 +82,7 @@
       <div class="col">
         <article class="lancamento revelar">
           ${l.capa
-            ? `<div class="capa capa--foto"><img src="${esc(caminho(l.capa))}" alt="${esc(t("Capa do álbum {titulo}", { titulo: l.titulo }))}" width="900" height="900" loading="lazy" decoding="async"></div>`
+            ? `<div class="capa capa--foto"><img src="${esc(caminho(l.capa))}" alt="${esc(l.capaAlt || t("Capa do álbum {titulo}", { titulo: l.titulo }))}" width="900" height="900" loading="lazy" decoding="async"></div>`
             : `<div class="capa" style="--cor:${esc(l.cor || "#333")}" aria-hidden="true">
             <div class="capa__disco"></div>
             <div class="capa__frente">${icone(l.icone || "vinyl-fill")}<div><strong>${esc(l.titulo)}</strong><small class="d-block mt-2">${esc(l.artista)}</small></div></div>
@@ -201,7 +201,7 @@
   const embed = (v) => {
     // O YouTube exige saber de qual site vem o vídeo (referrer). Sem isso, mostra o "Erro 153".
     const origem = encodeURIComponent(location.origin);
-    if (v.tipo === "youtube") return `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?autoplay=1&rel=0&playsinline=1&origin=${origem}" title="${esc(v.titulo)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    if (v.tipo === "youtube") return `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?autoplay=1&rel=0&playsinline=1${v.inicio ? `&start=${+v.inicio}` : ""}&origin=${origem}" title="${esc(v.titulo)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
     if (v.tipo === "vimeo") return `<iframe src="https://player.vimeo.com/video/${encodeURIComponent(v.id)}?autoplay=1" title="${esc(v.titulo)}" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
     return `<video src="${esc(caminho(v.id))}" controls autoplay playsinline></video>`;
   };
@@ -246,7 +246,7 @@
       // Aberto direto do computador (file://) não há referrer: o YouTube recusa o player.
       // Nesse caso, abre o vídeo no próprio YouTube em nova aba.
       if (location.protocol === "file:" && v.tipo !== "mp4") {
-        const url = v.tipo === "vimeo" ? `https://vimeo.com/${v.id}` : `https://www.youtube.com/watch?v=${v.id}`;
+        const url = v.tipo === "vimeo" ? `https://vimeo.com/${v.id}` : `https://www.youtube.com/watch?v=${v.id}${v.inicio ? `&t=${+v.inicio}s` : ""}`;
         window.open(url, "_blank", "noopener");
         return;
       }
@@ -291,6 +291,7 @@
           <h1>${esc(p.titulo)}</h1>
           <img class="artigo__capa" src="${esc(caminho(p.capa))}" alt="">
           <div class="artigo__texto">${(p.conteudo || [p.resumo]).map((t) => `<p class="mb-0">${esc(t)}</p>`).join("")}</div>
+          ${p.fonte ? `<p class="artigo__fonte">${t([].concat(p.fonte).length > 1 ? "Fontes:" : "Fonte:")} ${[].concat(p.fonte).map((f) => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.texto)}</a>`).join(" · ")}</p>` : ""}
           <p class="mt-5"><a class="link-seta" href="${BASE}pages/blog.html">${t("Voltar para o blog")}${icone("arrow-right")}</a></p>
         </article>`;
     } else {
