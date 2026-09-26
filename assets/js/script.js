@@ -291,7 +291,7 @@
           <h1>${esc(p.titulo)}</h1>
           <img class="artigo__capa" src="${esc(caminho(p.capa))}" alt="">
           <div class="artigo__texto">${(p.conteudo || [p.resumo]).map((t) => `<p class="mb-0">${esc(t)}</p>`).join("")}</div>
-          ${p.fonte ? `<p class="artigo__fonte">${t("Fonte:")} <a href="${esc(p.fonte.url)}" target="_blank" rel="noopener">${esc(p.fonte.texto)}</a></p>` : ""}
+          ${p.fonte ? `<p class="artigo__fonte">${t([].concat(p.fonte).length > 1 ? "Fontes:" : "Fonte:")} ${[].concat(p.fonte).map((f) => `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.texto)}</a>`).join(" · ")}</p>` : ""}
           <p class="mt-5"><a class="link-seta" href="${BASE}pages/blog.html">${t("Voltar para o blog")}${icone("arrow-right")}</a></p>
         </article>`;
     } else {

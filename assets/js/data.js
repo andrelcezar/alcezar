@@ -48,9 +48,9 @@ window.SITE_DATA = {
       link: "https://youtu.be/QfadM3NaDBE", acao: "Assistir ao clipe", video: 0, icone: "camera-reels-fill", cor: "#0d4a44",
       en: { tipo: "Single and music video", detalhe: "First single from “Lycans”, with a 4K music video shot at Cardeal Pub in São Paulo.", acao: "Watch the video" } },
     { titulo: "The Lost Horizon", artista: "Opus Eclipse", tipo: "Demo", ano: "2009",
-      detalhe: "Primeira demo autoral da banda, depois do festival Pimp My Band, onde tocamos “Convict” e “The Lost Horizon”.",
+      detalhe: "Primeira demo autoral da banda, lançada de forma independente (2009–2010), depois do festival Pimp My Band, onde chegamos à final com “Convict” e “The Lost Horizon”.",
       link: "", acao: "", icone: "disc-fill", cor: "#2a2a2a", capa: "assets/images/opus-eclipse-quadrado.webp", capaAlt: "Logo da Opus Eclipse",
-      en: { capaAlt: "Opus Eclipse logo", detalhe: "The band's first original demo, recorded after the Pimp My Band festival, where we played “Convict” and “The Lost Horizon”." } }
+      en: { capaAlt: "Opus Eclipse logo", detalhe: "The band's first original demo, released independently (2009–2010), after the Pimp My Band festival, where we reached the final with “Convict” and “The Lost Horizon”." } }
   ],
 
   /* Linha do tempo da carreira, em ordem. "quando" aceita ano ou texto curto. */
@@ -62,8 +62,8 @@ window.SITE_DATA = {
       texto: "A Opus Eclipse é reconhecida e autorizada por Christofer Johnsson, fundador do Therion, como cover brasileiro da banda.",
       en: { quando: "Sep 27, 2007", titulo: "Therion's seal of approval", texto: "Opus Eclipse is recognized and authorized by Christofer Johnsson, founder of Therion, as the band's official Brazilian tribute." } },
     { quando: "2008–2009", titulo: "Nova formação e músicas próprias",
-      texto: "Volto com a formação renovada. Tocamos “Convict” e “The Lost Horizon” no festival Pimp My Band e preparamos a demo “The Lost Horizon”.",
-      en: { titulo: "New lineup and original songs", texto: "I return with the new lineup. We play “Convict” and “The Lost Horizon” at the Pimp My Band festival and prepare the demo “The Lost Horizon”." } },
+      texto: "Volto com a formação renovada. Com “Convict” e “The Lost Horizon”, chegamos à final do festival Pimp My Band, em São Paulo, e gravamos a demo “The Lost Horizon”.",
+      en: { titulo: "New lineup and original songs", texto: "I return with the new lineup. With “Convict” and “The Lost Horizon” we reach the final of the Pimp My Band festival in São Paulo, and record the demo “The Lost Horizon”." } },
     { quando: "2012", titulo: "Fim de um ciclo",
       texto: "Deixo a banda depois de cinco anos, quando ela passa a se chamar Remagine.",
       en: { titulo: "End of an era", texto: "I leave the band after five years, as it changes its name to Remagine." } },
@@ -173,10 +173,10 @@ window.SITE_DATA = {
       en: { titulo: "High Moonlight — Hercobolus / Chronovisor (live)", descricao: "Live at Grutons Rock 2025 with High Moonlight. On bass: André Luiz." } }
     ,{ tipo: "youtube", id: "3Uy7rXxGGDI", destaque: false,
       titulo: "Opus Eclipse — ao vivo no Pimp My Band",
-      descricao: "Da época da Opus Eclipse: a banda ao vivo no festival de bandas Pimp My Band. No baixo: André Luiz.",
+      descricao: "Da época da Opus Eclipse: a banda ao vivo no festival de bandas Pimp My Band, em São Paulo, onde chegou à final com músicas próprias. No baixo: André Luiz.",
       thumb: "https://i.ytimg.com/vi/3Uy7rXxGGDI/hqdefault.jpg",
       thumbReserva: "assets/images/opus-eclipse-logo.webp",
-      en: { titulo: "Opus Eclipse — live at Pimp My Band", descricao: "From the Opus Eclipse days: the band live at the Pimp My Band festival. On bass: André Luiz." } }
+      en: { titulo: "Opus Eclipse — live at Pimp My Band", descricao: "From the Opus Eclipse days: the band live at the Pimp My Band festival in São Paulo, where it reached the final with original songs. On bass: André Luiz." } }
     ,{ tipo: "youtube", id: "kgRvAqWHkqs", inicio: 173, destaque: false,
       titulo: "Noctra — The Obsessive Devotion (tributo ao Epica)",
       descricao: "Com a Noctra, tributo a Epica e After Forever, em um festival de bandas no antigo Manifesto Rock Bar, em São Paulo. No baixo: André Luiz.",
@@ -196,25 +196,33 @@ window.SITE_DATA = {
       titulo: "Cover autorizado pelo Therion: minha história na Opus Eclipse",
       categoria: "Trajetória", data: "2026-09-20",
       capa: "assets/images/opus-eclipse-logo.webp",
-      fonte: { texto: "Histórico da banda no blog da Remagine (antiga Opus Eclipse)", url: "http://re-magine1.blogspot.com/p/historia.html" },
+      fonte: [
+        { texto: "Remagine (antiga Opus Eclipse): a banda", url: "https://re-magine.blogspot.com/p/banda.html" },
+        { texto: "Remagine (antiga Opus Eclipse): histórico", url: "http://re-magine1.blogspot.com/p/historia.html" }
+      ],
       resumo: "Da primeira formação, em 2007, até 2012. Uma banda reconhecida pelo próprio Christofer Johnsson como cover brasileiro do Therion.",
       conteudo: [
-        "A Opus Eclipse nasceu em fevereiro de 2007 como banda cover de gothic metal, formada por Bruno Buran e Daniel Iastremski. Logo vieram a soprano Karina Flores no vocal lírico, Tatiana Silva na bateria e eu no baixo. O nome vem de “Opus Eclipse”, faixa instrumental do álbum “Theli” (1996) do Therion.",
+        "A Opus Eclipse nasceu em fevereiro de 2007 como banda cover de gothic metal, formada por Bruno Buran e Daniel Iastremski. Logo vieram a soprano Karina Flores no vocal lírico, Tatiana Silva na bateria e eu no baixo. O nome, escolhido pela Karina, vem de “Opus Eclipse”, faixa instrumental do álbum “Theli” (1996) do Therion.",
         "Com o tempo, a banda passou a tocar apenas Therion, com um repertório de peso: “To Mega Therion”, “Abraxas”, “Asgard”, “Invocation of Naamah” e “Cults of the Shadow”. Tocar Therion é um exercício de disciplina: músicas longas, mudanças de andamento, orquestrações e coros que o baixo precisa sustentar sem atropelar ninguém.",
         "Em 27 de setembro de 2007, depois de um contato direto com a banda, a Opus Eclipse foi reconhecida e autorizada por Christofer Johnsson, vocalista, guitarrista e fundador do Therion, como cover brasileiro.",
-        "A banda fez uma pausa de outubro de 2007 a junho de 2008 e voltou com formação renovada, da qual continuei fazendo parte. Além dos shows como tributo, começamos a compor: participamos do festival de bandas Pimp My Band com “Convict” e “The Lost Horizon” e preparamos a primeira demo, “The Lost Horizon”.",
+        "A banda fez uma pausa de outubro de 2007 a junho de 2008 e voltou com formação renovada, da qual continuei fazendo parte. Além dos shows como tributo, começamos a compor: fomos convidados para o festival de bandas Pimp My Band, em São Paulo, e “Convict” e “The Lost Horizon” levaram a banda à final da competição. Em seguida veio a primeira demo, “The Lost Horizon”, lançada de forma independente (2009–2010).",
+        "Foram quatro anos na cena underground com o nome Opus Eclipse, tocando os maiores sucessos do Therion e as nossas próprias músicas, com shows por todo o Brasil.",
         "Fiquei na banda até 2012, quando ela passou a se chamar Remagine. Depois vieram três anos com a Noctra, tributo a Epica e After Forever, mantendo o pé no metal sinfônico antes de seguir para o autoral."
       ],
       en: {
-        fonte: { texto: "Band history on the Remagine blog (formerly Opus Eclipse)", url: "http://re-magine1.blogspot.com/p/historia.html" },
+        fonte: [
+          { texto: "Remagine (formerly Opus Eclipse): the band", url: "https://re-magine.blogspot.com/p/banda.html" },
+          { texto: "Remagine (formerly Opus Eclipse): history", url: "http://re-magine1.blogspot.com/p/historia.html" }
+        ],
         titulo: "Authorized by Therion: my years with Opus Eclipse",
         categoria: "Career",
         resumo: "From the original lineup in 2007 until 2012. A band recognized by Christofer Johnsson himself as Therion's Brazilian tribute.",
         conteudo: [
-          "Opus Eclipse was born in February 2007 as a gothic metal cover band, formed by Bruno Buran and Daniel Iastremski. Soon came soprano Karina Flores on operatic vocals, Tatiana Silva on drums and me on bass. The name comes from “Opus Eclipse”, an instrumental track from Therion's 1996 album “Theli”.",
+          "Opus Eclipse was born in February 2007 as a gothic metal cover band, formed by Bruno Buran and Daniel Iastremski. Soon came soprano Karina Flores on operatic vocals, Tatiana Silva on drums and me on bass. The name, chosen by Karina, comes from “Opus Eclipse”, an instrumental track from Therion's 1996 album “Theli”.",
           "Over time, the band came to play Therion exclusively, with a heavyweight setlist: “To Mega Therion”, “Abraxas”, “Asgard”, “Invocation of Naamah” and “Cults of the Shadow”. Playing Therion is an exercise in discipline: long songs, tempo changes, orchestrations and choirs that the bass has to support without stepping on anyone.",
           "On September 27, 2007, after reaching out directly to the band, Opus Eclipse was recognized and authorized by Christofer Johnsson — Therion's singer, guitarist and founder — as the band's Brazilian tribute.",
-          "The band took a break from October 2007 to June 2008 and came back with a new lineup, which I remained part of. Besides the tribute shows, we started writing: we played the Pimp My Band festival with “Convict” and “The Lost Horizon” and prepared our first demo, “The Lost Horizon”.",
+          "The band took a break from October 2007 to June 2008 and came back with a new lineup, which I remained part of. Besides the tribute shows, we started writing: we were invited to the Pimp My Band festival in São Paulo, and “Convict” and “The Lost Horizon” took the band to the final of the competition. Then came our first demo, “The Lost Horizon”, released independently (2009–2010).",
+          "We spent four years on the underground scene as Opus Eclipse, playing Therion's biggest songs and our own, with shows all over Brazil.",
           "I stayed with the band until 2012, when it changed its name to Remagine. Then came three years with Noctra, a tribute to Epica and After Forever, keeping one foot in symphonic metal before moving on to original music."
         ]
       } },

@@ -147,6 +147,7 @@
     "Depoimento em breve.": "Testimonial coming soon.",
     "Capa do álbum {titulo}": "{titulo} album cover",
     "Fonte:": "Source:",
+    "Fontes:": "Sources:",
 
     /* ---- galeria, blog e contato (páginas) ---- */
     "Palco, retratos e a identidade visual AL. Clique em uma foto para ampliar e use as setas para navegar.": "Stage shots, portraits and the AL visual identity. Click a photo to enlarge it and use the arrows to browse.",
