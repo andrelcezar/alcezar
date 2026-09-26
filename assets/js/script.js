@@ -201,7 +201,7 @@
   const embed = (v) => {
     // O YouTube exige saber de qual site vem o vídeo (referrer). Sem isso, mostra o "Erro 153".
     const origem = encodeURIComponent(location.origin);
-    if (v.tipo === "youtube") return `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?autoplay=1&rel=0&playsinline=1&origin=${origem}" title="${esc(v.titulo)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    if (v.tipo === "youtube") return `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?autoplay=1&rel=0&playsinline=1${v.inicio ? `&start=${+v.inicio}` : ""}&origin=${origem}" title="${esc(v.titulo)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
     if (v.tipo === "vimeo") return `<iframe src="https://player.vimeo.com/video/${encodeURIComponent(v.id)}?autoplay=1" title="${esc(v.titulo)}" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
     return `<video src="${esc(caminho(v.id))}" controls autoplay playsinline></video>`;
   };
@@ -246,7 +246,7 @@
       // Aberto direto do computador (file://) não há referrer: o YouTube recusa o player.
       // Nesse caso, abre o vídeo no próprio YouTube em nova aba.
       if (location.protocol === "file:" && v.tipo !== "mp4") {
-        const url = v.tipo === "vimeo" ? `https://vimeo.com/${v.id}` : `https://www.youtube.com/watch?v=${v.id}`;
+        const url = v.tipo === "vimeo" ? `https://vimeo.com/${v.id}` : `https://www.youtube.com/watch?v=${v.id}${v.inicio ? `&t=${+v.inicio}s` : ""}`;
         window.open(url, "_blank", "noopener");
         return;
       }

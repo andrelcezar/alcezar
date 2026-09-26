@@ -156,7 +156,8 @@ window.SITE_DATA = {
   ],
 
   /* tipo: "youtube" | "vimeo" | "mp4"
-     id: ID do YouTube/Vimeo, ou caminho do arquivo .mp4 em assets/videos/ */
+     id: ID do YouTube/Vimeo, ou caminho do arquivo .mp4 em assets/videos/
+     inicio: segundo em que o vídeo do YouTube começa (opcional, ex.: 173 = 2:53) */
   videos: [
     { tipo: "youtube", id: "QfadM3NaDBE", destaque: true,
       titulo: "High Moonlight — Heavy Play (Official 4K Video)",
@@ -170,6 +171,18 @@ window.SITE_DATA = {
       thumb: "https://i.ytimg.com/vi/znph7phOcDk/hqdefault.jpg",
       thumbReserva: "assets/images/galeria/hml-banda-palco-thumb.webp",
       en: { titulo: "High Moonlight — Hercobolus / Chronovisor (live)", descricao: "Live at Grutons Rock 2025 with High Moonlight. On bass: André Luiz." } }
+    ,{ tipo: "youtube", id: "3Uy7rXxGGDI", destaque: false,
+      titulo: "Opus Eclipse — ao vivo no Pimp My Band",
+      descricao: "Da época da Opus Eclipse: a banda ao vivo no festival de bandas Pimp My Band. No baixo: André Luiz.",
+      thumb: "https://i.ytimg.com/vi/3Uy7rXxGGDI/hqdefault.jpg",
+      thumbReserva: "assets/images/opus-eclipse-logo.webp",
+      en: { titulo: "Opus Eclipse — live at Pimp My Band", descricao: "From the Opus Eclipse days: the band live at the Pimp My Band festival. On bass: André Luiz." } }
+    ,{ tipo: "youtube", id: "kgRvAqWHkqs", inicio: 173, destaque: false,
+      titulo: "Noctra — The Obsessive Devotion (tributo ao Epica)",
+      descricao: "Com a Noctra, tributo a Epica e After Forever, em um festival de bandas no antigo Manifesto Rock Bar, em São Paulo. No baixo: André Luiz.",
+      thumb: "https://i.ytimg.com/vi/kgRvAqWHkqs/hqdefault.jpg",
+      thumbReserva: "assets/images/galeria/maos-thumb.webp",
+      en: { titulo: "Noctra — The Obsessive Devotion (Epica tribute)", descricao: "With Noctra, a tribute to Epica and After Forever, at a band festival at the old Manifesto Rock Bar in São Paulo. On bass: André Luiz." } }
     /* Para adicionar outro vídeo, copie o bloco acima, troque o id
        e deixe destaque: false. Exemplo MP4:
     ,{ tipo: "mp4", id: "assets/videos/ao-vivo.mp4", destaque: false,
