@@ -230,11 +230,13 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 
 /* ---------- Vídeos ---------- */
 .video-capa { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 0; padding: 0; border-radius: var(--bs-border-radius-lg); background: #000; }
-.video-capa img { width: 100%; height: 100%; object-fit: cover; opacity: .75; transition: opacity .4s, transform .7s var(--al-ease); }
-.video-capa:hover img { opacity: .9; transform: scale(1.03); }
-.video-capa .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: clamp(72px, 9vw, 104px); height: clamp(72px, 9vw, 104px); border-radius: 50%; background: var(--al-vermelho); display: grid; place-items: center; font-size: clamp(2rem, 3.4vw, 2.8rem); color: #fff; transition: transform .45s var(--al-ease), box-shadow .45s; }
+.video-capa img { width: 100%; height: 100%; object-fit: cover; opacity: .9; transition: opacity .4s, transform .7s var(--al-ease); }
+.video-capa:hover img { opacity: 1; transform: scale(1.03); }
+/* botão de play no canto: não cobre o texto das capas (títulos ficam à esquerda/centro) */
+.video-capa .play { position: absolute; right: 4%; bottom: 7%; width: clamp(56px, 6vw, 80px); height: clamp(56px, 6vw, 80px); border-radius: 50%; background: var(--al-vermelho); display: grid; place-items: center; font-size: clamp(1.6rem, 2.4vw, 2.2rem); color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.5); transition: transform .45s var(--al-ease), box-shadow .45s; }
 .video-capa .play .bi { margin-left: 6%; }
-.video-capa:hover .play { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 14px rgba(227,20,27,.18); }
+.video-capa:hover .play { transform: scale(1.1); box-shadow: 0 0 0 12px rgba(227,20,27,.18); }
+[data-videos-lista] .video-capa .play { width: 48px; height: 48px; font-size: 1.4rem; right: 3%; bottom: 6%; }
 .creditos { list-style: none; padding: 0; margin: 0; display: grid; gap: .4rem; font-size: .95rem; }
 .creditos span { color: var(--al-cinza); }
 .canal { border: 1px solid var(--al-linha); border-radius: var(--bs-border-radius-lg); background: var(--al-grafite-2); padding: 1.75rem 2rem; }
