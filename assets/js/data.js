@@ -49,8 +49,8 @@ window.SITE_DATA = {
       en: { tipo: "Single and music video", detalhe: "First single from “Lycans”, with a 4K music video shot at Cardeal Pub in São Paulo.", acao: "Watch the video" } },
     { titulo: "The Lost Horizon", artista: "Opus Eclipse", tipo: "Demo", ano: "2009",
       detalhe: "Primeira demo autoral da banda, lançada de forma independente (2009–2010), depois do festival Pimp My Band, onde chegamos à final com “Convict” e “The Lost Horizon”.",
-      link: "", acao: "", icone: "disc-fill", cor: "#2a2a2a", capa: "assets/images/opus-eclipse-quadrado.webp", capaAlt: "Logo da Opus Eclipse",
-      en: { capaAlt: "Opus Eclipse logo", detalhe: "The band's first original demo, released independently (2009–2010), after the Pimp My Band festival, where we reached the final with “Convict” and “The Lost Horizon”." } }
+      link: "https://www.palcomp3.com.br/opuseclipse/", acao: "Ouvir no Palco MP3", icone: "disc-fill", cor: "#2a2a2a", capa: "assets/images/opus-eclipse-quadrado.webp", capaAlt: "Logo da Opus Eclipse",
+      en: { capaAlt: "Opus Eclipse logo", acao: "Listen on Palco MP3", detalhe: "The band's first original demo, released independently (2009–2010), after the Pimp My Band festival, where we reached the final with “Convict” and “The Lost Horizon”." } }
   ],
 
   /* Linha do tempo da carreira, em ordem. "quando" aceita ano ou texto curto. */
@@ -198,7 +198,8 @@ window.SITE_DATA = {
       capa: "assets/images/opus-eclipse-logo.webp",
       fonte: [
         { texto: "Remagine (antiga Opus Eclipse): a banda", url: "https://re-magine.blogspot.com/p/banda.html" },
-        { texto: "Remagine (antiga Opus Eclipse): histórico", url: "http://re-magine1.blogspot.com/p/historia.html" }
+        { texto: "Remagine (antiga Opus Eclipse): histórico", url: "http://re-magine1.blogspot.com/p/historia.html" },
+        { texto: "Opus Eclipse no Palco MP3", url: "https://www.palcomp3.com.br/opuseclipse/" }
       ],
       resumo: "Da primeira formação, em 2007, até 2012. Uma banda reconhecida pelo próprio Christofer Johnsson como cover brasileiro do Therion.",
       conteudo: [
@@ -207,12 +208,14 @@ window.SITE_DATA = {
         "Em 27 de setembro de 2007, depois de um contato direto com a banda, a Opus Eclipse foi reconhecida e autorizada por Christofer Johnsson, vocalista, guitarrista e fundador do Therion, como cover brasileiro.",
         "A banda fez uma pausa de outubro de 2007 a junho de 2008 e voltou com formação renovada, da qual continuei fazendo parte. Além dos shows como tributo, começamos a compor: fomos convidados para o festival de bandas Pimp My Band, em São Paulo, e “Convict” e “The Lost Horizon” levaram a banda à final da competição. Em seguida veio a primeira demo, “The Lost Horizon”, lançada de forma independente (2009–2010).",
         "Foram quatro anos na cena underground com o nome Opus Eclipse, tocando os maiores sucessos do Therion e as nossas próprias músicas, com shows por todo o Brasil.",
+        "Duas gravações dessa época ainda estão no Palco MP3: nossa versão de “Invocation of Naamah”, do Therion, e “The Lost Horizon” ao vivo em 2009. Na página da banda, os contatos para shows eram “Karina ou André”.",
         "Fiquei na banda até 2012, quando ela passou a se chamar Remagine. Depois vieram três anos com a Noctra, tributo a Epica e After Forever, mantendo o pé no metal sinfônico antes de seguir para o autoral."
       ],
       en: {
         fonte: [
           { texto: "Remagine (formerly Opus Eclipse): the band", url: "https://re-magine.blogspot.com/p/banda.html" },
-          { texto: "Remagine (formerly Opus Eclipse): history", url: "http://re-magine1.blogspot.com/p/historia.html" }
+          { texto: "Remagine (formerly Opus Eclipse): history", url: "http://re-magine1.blogspot.com/p/historia.html" },
+          { texto: "Opus Eclipse on Palco MP3", url: "https://www.palcomp3.com.br/opuseclipse/" }
         ],
         titulo: "Authorized by Therion: my years with Opus Eclipse",
         categoria: "Career",
@@ -223,6 +226,7 @@ window.SITE_DATA = {
           "On September 27, 2007, after reaching out directly to the band, Opus Eclipse was recognized and authorized by Christofer Johnsson — Therion's singer, guitarist and founder — as the band's Brazilian tribute.",
           "The band took a break from October 2007 to June 2008 and came back with a new lineup, which I remained part of. Besides the tribute shows, we started writing: we were invited to the Pimp My Band festival in São Paulo, and “Convict” and “The Lost Horizon” took the band to the final of the competition. Then came our first demo, “The Lost Horizon”, released independently (2009–2010).",
           "We spent four years on the underground scene as Opus Eclipse, playing Therion's biggest songs and our own, with shows all over Brazil.",
+          "Two recordings from that time are still on Palco MP3: our version of Therion's “Invocation of Naamah” and “The Lost Horizon” live in 2009. On the band's page, the booking contacts were “Karina or André”.",
           "I stayed with the band until 2012, when it changed its name to Remagine. Then came three years with Noctra, a tribute to Epica and After Forever, keeping one foot in symphonic metal before moving on to original music."
         ]
       } },
