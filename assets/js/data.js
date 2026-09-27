@@ -200,12 +200,13 @@ window.SITE_DATA = {
      - capas: a capa de cada vídeo é gerada sozinha (scripts/gerar-capas.py) a partir
        do título no YouTube. Para ajustar os textos de uma capa, use o id do vídeo:
        titulo (letras grandes), linha1 (branca), linha2 (vermelha), selo (canto),
-       ou capa: false para usar a miniatura do próprio YouTube. */
+       ou capa: false para usar a miniatura do próprio YouTube.
+       nome: título mostrado no card do site (sem ele, usa o título do YouTube até o "|"). */
   canal: {
     limite: 6,
     ocultar: [],
     capas: {
-      "MXHjqOleR0Q": { titulo: "Chronovisor", linha1: "High Moonlight · Baixo", linha2: "Você nunca ouviu um baixo assim", selo: "Baixo" }
+      "MXHjqOleR0Q": { nome: "High Moonlight — Chronovisor (o baixo em destaque)", titulo: "Chronovisor", linha1: "High Moonlight · Baixo", linha2: "Você nunca ouviu um baixo assim", selo: "Baixo" }
     }
   },
 

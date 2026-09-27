@@ -73,6 +73,7 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 .link-seta { font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--al-vermelho); padding-bottom: 2px; display: inline-flex; align-items: center; gap: .4rem; }
 .link-seta .bi { transition: transform .25s var(--al-ease); }
 .link-seta:hover .bi { transform: translateX(4px); }
+@media (pointer: coarse) { .link-seta { min-height: 44px; } }
 
 /* ---------- Navbar ---------- */
 .navbar-al { height: var(--al-header-h); transition: background .4s, border-color .4s, height .4s; border-bottom: 1px solid transparent; }
@@ -199,8 +200,8 @@ h1, h2, h3, h4, h5, .display-font { font-family: var(--al-display); font-weight:
 .badge-al { background: rgba(227,20,27,.15); color: #ff8a8e; border: 1px solid rgba(227,20,27,.35); font-weight: 600; font-size: .78rem; padding: .35em .65em; border-radius: 999px; }
 .badge-ano { background: transparent; color: var(--al-cinza); border: 1px solid var(--al-linha); font-weight: 500; font-size: .78rem; padding: .35em .65em; border-radius: 999px; }
 .lancamento h3 { font-size: 2rem; margin: .2rem 0 0; }
-.lancamento p { color: var(--al-cinza); font-size: .95rem; flex: 1; margin: 0; }
-.lancamento .btn { align-self: flex-start; }
+.lancamento p { color: var(--al-cinza); font-size: .95rem; margin: 0; }
+.lancamento .btn { align-self: flex-start; margin-top: auto; }
 
 /* ---------- Estilos (faixa) ---------- */
 .generos { padding-block: clamp(1.75rem, 4vw, 2.75rem); overflow: hidden; border-block: 1px solid var(--al-linha); }
@@ -333,7 +334,11 @@ textarea.form-control { min-height: 160px; }
 .footer ul a:hover { color: var(--al-vermelho); }
 .redes a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--al-linha); display: grid; place-items: center; font-size: 1.1rem; text-decoration: none; transition: background .2s, border-color .2s; }
 .redes a:hover { background: var(--al-vermelho); border-color: var(--al-vermelho); color: #fff; }
-.topo { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1020; width: 52px; height: 52px; border-radius: 50%; border: 0; background: var(--al-vermelho); color: #fff; display: grid; place-items: center; font-size: 1.25rem; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .4s, transform .4s var(--al-ease), visibility .4s; }
+.topo { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1020; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(227,20,27,.7); background: rgba(12,12,12,.82); color: #fff; display: grid; place-items: center; font-size: 1.15rem; backdrop-filter: blur(6px); opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .4s, transform .4s var(--al-ease), visibility .4s, background .2s; }
+.topo:hover, .topo:focus-visible { background: var(--al-vermelho); }
+/* some quando o rodapé aparece, para não cobrir links */
+.topo.visivel.no-fim { opacity: 0; visibility: hidden; }
+@media (max-width: 767.98px) { .topo { right: .75rem; bottom: .75rem; width: 44px; height: 44px; } }
 .topo.visivel { opacity: 1; visibility: visible; transform: none; }
 
 /* ---------- Páginas internas ---------- */
@@ -352,4 +357,12 @@ textarea.form-control { min-height: 160px; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .entra, .revelar { opacity: 1; transform: none; }
   .hero__fundo, .generos__linha { transform: none !important; }
+}
+
+/* ---------- Listas em carrossel no celular (vídeos e discografia) ---------- */
+@media (max-width: 767.98px) {
+  .rolagem-x { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: calc(var(--bs-gutter-x) * .5); scrollbar-width: none; padding-bottom: .25rem; }
+  .rolagem-x::-webkit-scrollbar { display: none; }
+  .rolagem-x > .col { flex: 0 0 84%; max-width: 84%; scroll-snap-align: start; }
+  .rolagem-x .revelar { opacity: 1; transform: none; }
 }

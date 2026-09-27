@@ -85,6 +85,7 @@
     "Mostrar só os marcos principais": "Show only the key milestones",
     "Ver todas as fotos": "See all photos",
     "Mais recentes do canal": "Latest from the channel",
+    "High Moonlight — Chronovisor (o baixo em destaque)": "High Moonlight — Chronovisor (bass spotlight)",
     "Ver todos no YouTube": "See all on YouTube",
     "Precisa de um baixista?": "Need a bass player?",
     "Show, substituição, gravação ou clipe. Me mande a data e o repertório.": "Live show, fill-in, recording or music video. Send me the date and the setlist.",

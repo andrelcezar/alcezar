@@ -37,6 +37,11 @@
   window.addEventListener("scroll", aoRolar, { passive: true });
   aoRolar();
   topo && topo.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduzMovimento ? "auto" : "smooth" }));
+  // esconde o botão quando o rodapé entra na tela, para não cobrir os links
+  const rodape = $(".footer");
+  if (topo && rodape && "IntersectionObserver" in window) {
+    new IntersectionObserver(([en]) => topo.classList.toggle("no-fim", en.isIntersecting)).observe(rodape);
+  }
 
   // fecha o menu lateral (celular) ao escolher um link
   const menu = $("#menu");
@@ -265,9 +270,12 @@
     if (novos.length) {
       const dataCurta = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString(EN ? "en-US" : "pt-BR", { month: "short", year: "numeric" });
       canalLista.innerHTML = novos.map((x) => {
-        const i = videos.push({ tipo: "youtube", id: x.id, titulo: x.titulo, descricao: x.descricao, thumb: `assets/images/capas/${x.id}.webp`, thumbReserva: `https://i.ytimg.com/vi/${x.id}/hqdefault.jpg` }) - 1;
+        // no card, só a parte antes de "|" (o resto costuma ser detalhe para o YouTube)
+        const nome = ((cfg.capas || {})[x.id] || {}).nome;
+        const titulo = nome ? t(nome) : x.titulo.split(" | ")[0].trim();
+        const i = videos.push({ tipo: "youtube", id: x.id, titulo, descricao: x.descricao, thumb: `assets/images/capas/${x.id}.webp`, thumbReserva: `https://i.ytimg.com/vi/${x.id}/hqdefault.jpg` }) - 1;
         return `
-        <div class="col"><article class="revelar">${capa(videos[i], i, false)}<h4 class="mt-3" style="font-size:1.35rem">${esc(x.titulo)}</h4><p class="text-secondary small mb-0">${esc(dataCurta(x.publicado))}</p></article></div>`;
+        <div class="col"><article class="revelar">${capa(videos[i], i, false)}<h4 class="mt-3" style="font-size:1.35rem">${esc(titulo)}</h4><p class="text-secondary small mb-0">${esc(dataCurta(x.publicado))}</p></article></div>`;
       }).join("");
       canalEl.hidden = false;
     }
