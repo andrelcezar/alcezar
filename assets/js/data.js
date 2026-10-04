@@ -19,12 +19,12 @@ window.SITE_DATA = {
   },
 
   /* Formulário: as mensagens são enviadas por e-mail pelo FormSubmit
-     (formsubmit.co) para aluiz.cez@gmail.com. No primeiro envio, o
+     (formsubmit.co) para contato@alcezar.com.br. No primeiro envio, o
      FormSubmit manda um e-mail de ativação para esse endereço: clique
      em "Activate Form" e, a partir daí, as mensagens chegam normalmente.
      Se deixar vazio, o formulário oferece enviar pelo WhatsApp. */
   formulario: {
-    endpoint: "https://formsubmit.co/ajax/aluiz.cez@gmail.com",
+    endpoint: "https://formsubmit.co/ajax/contato@alcezar.com.br",
     metodo: "POST"
   },
 

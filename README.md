@@ -119,13 +119,13 @@ O site usa Bootstrap 5.3.3 em modo escuro (`data-bs-theme="dark"`): grid e utili
 
 ## Formulário de contato
 
-O formulário **envia e-mail para aluiz.cez@gmail.com** pelo [FormSubmit](https://formsubmit.co), serviço gratuito que não exige backend nem cadastro. A configuração fica em `data.js`:
+O formulário **envia e-mail para contato@alcezar.com.br** pelo [FormSubmit](https://formsubmit.co), serviço gratuito que não exige backend nem cadastro. A configuração fica em `data.js`:
 
 ```js
-formulario: { endpoint: "https://formsubmit.co/ajax/aluiz.cez@gmail.com", metodo: "POST" }
+formulario: { endpoint: "https://formsubmit.co/ajax/contato@alcezar.com.br", metodo: "POST" }
 ```
 
-**Ativação (uma vez só):** depois de publicar o site, envie uma mensagem de teste pelo formulário. O FormSubmit manda um e-mail de confirmação para aluiz.cez@gmail.com; clique em **Activate Form**. A partir daí, cada envio chega como e-mail com o assunto "Contato pelo site: …", e o botão "Responder" já vai para o e-mail do visitante. Se o e-mail de ativação não aparecer, procure no spam.
+**Ativação (uma vez só):** depois de publicar o site, envie uma mensagem de teste pelo formulário. O FormSubmit manda um e-mail de confirmação para contato@alcezar.com.br; clique em **Activate Form**. A partir daí, cada envio chega como e-mail com o assunto "Contato pelo site: …", e o botão "Responder" já vai para o e-mail do visitante. Se o e-mail de ativação não aparecer, procure no spam. A ativação vale para cada combinação de e-mail de destino e domínio do site: se trocar o endereço ou o domínio, é preciso ativar de novo.
 
 Detalhes:
 
