@@ -137,7 +137,7 @@ Detalhes:
 
 ## Antes de publicar
 
-1. Troque `https://www.seudominio.com.br` pelo domínio real em todas as páginas (`canonical`, `og:url`, `og:image`), no `sitemap.xml`, no `robots.txt` e no bloco Schema.org do `index.html`. Um "localizar e substituir" na pasta resolve.
+1. O domínio do site é `https://alcezar.com.br` (GitHub Pages, atrás do Cloudflare). Ele aparece em todas as páginas (`canonical`, `og:url`, `og:image`), no `sitemap.xml`, no `robots.txt` e no bloco Schema.org do `index.html`. Se o domínio mudar, um "localizar e substituir" na pasta resolve. O FormSubmit pede uma ativação nova para cada domínio de onde o formulário é enviado.
 2. Revise os textos de `privacidade.html` e `termos.html` (são modelos).
 3. Troque ou complemente a galeria com fotos reais de shows.
 
